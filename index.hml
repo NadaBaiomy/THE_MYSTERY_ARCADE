@@ -14,7 +14,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.454.0/dist/umd/lucide.min.js"></script>
 <style>
-/* ===== الأساسيات ===== */
 :root{
   --bg:#0b0a10; --bg2:#110e18; --panel:#15121d; --panel2:#1b1726;
   --line:#2b2537; --ink:#f0e9d9; --dim:#a39ab2;
@@ -28,7 +27,6 @@ body{
   font-family:'Alexandria',sans-serif; font-size:15px; line-height:1.65;
   overflow:hidden; user-select:none; -webkit-user-select:none;
 }
-/* مسح CRT خفيف + إظلام أطراف */
 body::before{content:''; position:fixed; inset:0; z-index:998; pointer-events:none;
   background:repeating-linear-gradient(0deg, transparent 0 3px, rgba(0,0,0,.045) 3px 4px)}
 body::after{content:''; position:fixed; inset:0; z-index:997; pointer-events:none;
@@ -40,7 +38,6 @@ b{font-weight:700}
 .dim{color:var(--dim)}
 button{font-family:inherit}
 
-/* ===== أزرار وحبوب ===== */
 .btn{
   font-weight:700; font-size:15px; color:var(--acc);
   background:transparent; border:2px solid var(--acc); border-radius:10px;
@@ -61,10 +58,9 @@ button{font-family:inherit}
 .pill b.px{font-size:11px; color:var(--amber)}
 .pill.icon{padding:5px 9px; cursor:pointer}
 
-/* ===== الشاشات ===== */
-.screen{position:fixed; inset:0; z-index:1; display:flex; flex-direction:column; overflow:hidden}
+.screen{position:fixed; top:0; right:0; bottom:0; left:0; z-index:1; display:flex; flex-direction:column; overflow:hidden}
 
-/* ===== شاشة العنوان ===== */
+/* شاشة العنوان */
 #splash{align-items:center; justify-content:center; gap:26px; padding:24px; text-align:center}
 .marquee{position:relative; max-width:min(92vw,560px); filter:drop-shadow(0 10px 0 rgba(0,0,0,.5))}
 .mq-plate{
@@ -80,10 +76,7 @@ button{font-family:inherit}
 @keyframes blinkB{0%,100%{opacity:1}50%{opacity:.25}}
 .mq-row span:nth-child(odd){animation-delay:.35s}
 .splash-tag{color:var(--dim); margin:0; font-weight:300; font-size:16px}
-#coinBtn{
-  margin-top:6px; display:flex; align-items:center; gap:16px; cursor:pointer;
-  background:transparent; border:none; color:var(--ink); padding:0;
-}
+#coinBtn{margin-top:6px; display:flex; align-items:center; gap:16px; cursor:pointer; background:transparent; border:none; color:var(--ink); padding:0}
 .coin-disc{
   width:86px; height:86px; border-radius:50%;
   background:var(--gold); color:#3a2b00; font-size:30px;
@@ -95,10 +88,9 @@ button{font-family:inherit}
 .coin-txt{display:flex; flex-direction:column; align-items:flex-start; text-align:right}
 .coin-txt b{font-family:'Press Start 2P',monospace; font-size:13px; color:var(--amber)}
 .coin-txt small{color:var(--dim); font-size:13px}
-.splash-sub{color:var(--dim); font-size:13px; margin:0}
-.splash-sub.px{font-size:10px; color:var(--amber); opacity:.7}
+.splash-sub{color:var(--amber); opacity:.7; margin:0; font-size:10px}
 
-/* ===== HUD الخريطة ===== */
+/* HUD */
 #hud{
   display:flex; align-items:center; gap:8px; padding:10px 12px;
   background:rgba(11,10,16,.9); border-bottom:1px solid var(--line); z-index:5;
@@ -115,18 +107,14 @@ button{font-family:inherit}
   cursor:pointer; display:flex; align-items:center; justify-content:center;
 }
 .map-ctrls button svg{width:20px; height:20px}
-#mapHint{
-  text-align:center; color:var(--dim); font-size:12.5px; padding:8px 12px 10px;
-  background:rgba(11,10,16,.9); border-top:1px solid var(--line);
-}
-/* عقد الخريطة */
+#mapHint{text-align:center; color:var(--dim); font-size:12.5px; padding:8px 12px 10px; background:rgba(11,10,16,.9); border-top:1px solid var(--line)}
 #mapSvg text{font-family:'Alexandria',sans-serif; pointer-events:none}
 g.node{transform-box:fill-box; transform-origin:center; transition:transform .18s; cursor:pointer}
 g.node:not(.locked):hover{transform:scale(1.06)}
 g.node.locked{cursor:default; opacity:.85}
 .bulb{animation:blinkB 1.8s infinite}
 
-/* ===== شاشة اللعبة ===== */
+/* شاشة اللعبة */
 #gameScreen{background:var(--bg)}
 #gHead{
   display:flex; align-items:center; gap:12px; padding:10px 14px;
@@ -138,13 +126,11 @@ g.node.locked{cursor:default; opacity:.85}
 .g-title span{font-size:9px; color:var(--amber); letter-spacing:.25em}
 #gStage{flex:1; overflow-y:auto; overflow-x:hidden; position:relative; padding:16px 14px 30px}
 .g-wrap{max-width:660px; margin:0 auto; width:100%; position:relative}
-.game-hud{
-  display:flex; justify-content:center; gap:10px; margin-bottom:12px; flex-wrap:wrap;
-}
+.game-hud{display:flex; justify-content:center; gap:10px; margin-bottom:12px; flex-wrap:wrap}
 .game-hud span{color:var(--dim); font-size:13px}
 .game-hud b{color:var(--amber); font-family:'Press Start 2P',monospace; font-size:12px; margin-inline-start:6px}
 .start-ov{
-  position:absolute; inset:0; z-index:20; background:rgba(11,10,16,.88);
+  position:absolute; top:0; right:0; bottom:0; left:0; z-index:20; background:rgba(11,10,16,.88);
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
   text-align:center; border-radius:12px; backdrop-filter:blur(2px);
 }
@@ -152,11 +138,11 @@ g.node.locked{cursor:default; opacity:.85}
 .start-ov .coral{color:var(--red)}
 .stage-tip{color:var(--dim); font-size:12.5px; text-align:center; margin:6px 0 12px}
 
-/* ===== نتيجة الجولة ===== */
+/* نتيجة الجولة — ثابتة فوق الشاشة */
 .res{
-  position:absolute; inset:0; z-index:30; background:rgba(11,10,16,.93);
+  position:fixed; top:0; right:0; bottom:0; left:0; z-index:60; background:rgba(11,10,16,.93);
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
-  text-align:center; border-radius:12px; backdrop-filter:blur(3px); padding:20px;
+  text-align:center; padding:20px; backdrop-filter:blur(3px);
 }
 .res-ico svg{width:40px; height:40px; color:var(--acc)}
 .res-score{font-size:clamp(22px,7vw,34px); color:var(--amber)}
@@ -170,7 +156,7 @@ g.node.locked{cursor:default; opacity:.85}
 .res-notes svg{width:17px; height:17px; color:var(--acc); flex:none}
 .res-btns{display:flex; gap:12px; margin-top:10px; flex-wrap:wrap; justify-content:center}
 
-/* ===== Toast & Modal ===== */
+/* Toast & Modal */
 #toasts{position:fixed; top:calc(70px + env(safe-area-inset-top)); right:0; left:0; z-index:600; display:flex; flex-direction:column; align-items:center; gap:8px; pointer-events:none}
 .toast{
   display:flex; align-items:center; gap:10px; background:var(--panel2);
@@ -183,7 +169,7 @@ g.node.locked{cursor:default; opacity:.85}
 @keyframes tIn{from{opacity:0; transform:translateY(-14px)}to{opacity:1}}
 @keyframes tOut{to{opacity:0; transform:translateY(-10px)}}
 .modal-bg{
-  position:fixed; inset:0; z-index:700; background:rgba(5,4,8,.75);
+  position:fixed; top:0; right:0; bottom:0; left:0; z-index:700; background:rgba(5,4,8,.75);
   display:flex; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(3px);
 }
 .modal{
@@ -197,7 +183,7 @@ g.node.locked{cursor:default; opacity:.85}
 .m-actions{display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; justify-content:flex-end}
 .m-actions .btn{padding:8px 18px; font-size:14px}
 
-/* ===== ردة الفعل ===== */
+/* ردة الفعل */
 .react-box{
   height:min(58vh,420px); border-radius:14px; border:2px solid var(--line);
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
@@ -212,11 +198,10 @@ g.node.locked{cursor:default; opacity:.85}
 .react-dots span.on{background:var(--green)}
 .react-dots span.cur{background:var(--amber)}
 
-/* ===== التصويب ===== */
+/* التصويب */
 .aim-arena{
   position:relative; height:min(56vh,430px); border-radius:14px;
-  border:2px solid var(--line); background:
-  radial-gradient(circle at 50% 50%, #141020 0%, #0e0b15 100%);
+  border:2px solid var(--line); background:radial-gradient(circle at 50% 50%, #141020 0%, #0e0b15 100%);
   overflow:hidden; touch-action:none;
 }
 .tgt,.bomb{
@@ -228,8 +213,8 @@ g.node.locked{cursor:default; opacity:.85}
 .tgt::before{content:''; position:absolute; inset:0; border-radius:50%; border:3px solid var(--amber); background:rgba(255,194,71,.16)}
 .tgt::after{content:''; width:18px; height:18px; border-radius:50%; background:var(--amber); box-shadow:0 0 0 5px rgba(255,194,71,.35)}
 .bomb{border:3px solid var(--red); background:#141018}
-.bomb::after{content:''; position:absolute; top:-9px; right:4px; width:10px; height:12px; border:2px solid var(--red); border-radius:3px; transform:rotate(24deg)}
 .bomb::before{content:''; position:absolute; inset:9px; border-radius:50%; background:var(--red); clip-path:polygon(50% 50%,100% 38%,100% 62%,50% 50%,0 62%,0 38%)}
+.bomb::after{content:''; position:absolute; top:-9px; right:4px; width:10px; height:12px; border:2px solid var(--red); border-radius:3px; transform:rotate(24deg)}
 @keyframes popin{from{transform:scale(.2)}to{transform:scale(1)}}
 .float-pt{
   position:absolute; font-family:'Press Start 2P',monospace; font-size:12px;
@@ -238,7 +223,7 @@ g.node.locked{cursor:default; opacity:.85}
 .float-pt.neg{color:var(--red)}
 @keyframes fUp{to{transform:translateY(-46px); opacity:0}}
 
-/* ===== الذاكرة ===== */
+/* الذاكرة */
 .mem-card{
   width:130px; height:130px; margin:10px auto; border-radius:16px;
   border:2px solid var(--acc); background:var(--panel2);
@@ -259,10 +244,8 @@ g.node.locked{cursor:default; opacity:.85}
 .mem-order{display:flex; gap:6px; justify-content:center; margin-top:12px}
 .mem-order i{width:26px; height:26px; border-radius:7px; background:var(--panel2); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-style:normal; font-size:12px}
 .mem-order i.done{background:#12301f; border-color:var(--green); color:var(--green)}
-.tbar{height:6px; background:var(--line); border-radius:99px; overflow:hidden; max-width:380px; margin:0 auto}
-.tbar i{display:block; height:100%; background:var(--acc); transition:width .3s linear}
 
-/* ===== الألوان ===== */
+/* الألوان */
 .stroop-word{font-size:clamp(40px,13vw,62px); font-weight:800; text-align:center; margin:26px 0; letter-spacing:.03em}
 .stroop-btns{display:flex; justify-content:center; gap:14px; flex-wrap:wrap}
 .stroop-btns button{width:72px; height:72px; border-radius:16px; border:2px solid var(--line); cursor:pointer; transition:transform .1s}
@@ -270,7 +253,7 @@ g.node.locked{cursor:default; opacity:.85}
 .stroop-combo{text-align:center; color:var(--dim); font-size:13px; margin-top:14px}
 .stroop-combo b{color:var(--amber)}
 
-/* ===== الكلمات ===== */
+/* الكلمات */
 .word-cat{text-align:center; color:var(--dim); font-size:13px}
 .word-slots{display:flex; gap:8px; justify-content:center; direction:ltr; margin:18px 0; flex-wrap:wrap}
 .word-slots i{
@@ -279,7 +262,6 @@ g.node.locked{cursor:default; opacity:.85}
   font-family:'Press Start 2P',monospace; font-size:18px; color:var(--amber);
 }
 .word-slots i.fixed{border-color:var(--green); color:var(--green)}
-.word-slots i.wrong{animation:shake .4s; color:var(--red)}
 .word-tray{display:flex; gap:10px; justify-content:center; direction:ltr; flex-wrap:wrap}
 .word-tray button{
   width:48px; height:52px; border-radius:10px; border:2px solid var(--acc);
@@ -290,7 +272,7 @@ g.node.locked{cursor:default; opacity:.85}
 .word-tray button.used{opacity:.18; pointer-events:none}
 .word-actions{display:flex; justify-content:center; gap:10px; margin-top:20px}
 
-/* ===== النغمات ===== */
+/* النغمات */
 .music-pads{display:flex; justify-content:center; gap:12px; margin:22px 0; flex-wrap:wrap}
 .music-pads button{
   width:76px; height:76px; border-radius:18px; border:2px solid var(--line);
@@ -301,7 +283,7 @@ g.node.locked{cursor:default; opacity:.85}
 .music-pads button:active{transform:scale(.9)}
 .pad-lit{filter:brightness(1.9) !important; transform:scale(1.08)}
 
-/* ===== السلايدر ===== */
+/* السلايدر */
 .pz-flex{display:flex; gap:16px; justify-content:center; align-items:flex-start; flex-wrap:wrap}
 .pz-board{position:relative; width:min(88vw,360px); aspect-ratio:1; border-radius:12px; border:2px solid var(--line); background:var(--bg2); direction:ltr}
 .pz-tile{
@@ -309,12 +291,11 @@ g.node.locked{cursor:default; opacity:.85}
   background-size:300% 300%; cursor:pointer; transition:transform .18s;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
 }
-.pz-tile:active{filter:brightness(1.15)}
 .pz-side{display:flex; flex-direction:column; gap:10px; align-items:center}
 .pz-thumb{width:110px; border-radius:8px; border:2px solid var(--line)}
 .pz-side .pill svg{color:var(--amber)}
 
-/* ===== كاسر الشفرات ===== */
+/* كاسر الشفرات */
 .code-clues{display:flex; flex-direction:column; gap:10px; margin:14px 0}
 .code-clues .clue{
   display:flex; align-items:center; gap:14px; background:var(--panel);
@@ -347,7 +328,7 @@ g.node.locked{cursor:default; opacity:.85}
   border-radius:8px; padding:10px 14px; font-size:13.5px; color:var(--dim); margin:12px 0;
 }
 
-/* ===== المحقق ===== */
+/* المحقق */
 .det-scene{border-radius:14px; border:2px solid var(--line); background:var(--bg2); display:block; width:100%}
 .hotspot{cursor:pointer}
 .hotspot circle{animation:hsPulse 1.6s infinite}
@@ -366,7 +347,7 @@ g.node.locked{cursor:default; opacity:.85}
 .ev-list svg{width:16px; height:16px; color:var(--green); flex:none}
 .det-actions{display:flex; gap:10px; justify-content:center; margin-top:16px; flex-wrap:wrap}
 
-/* ===== المختبر ===== */
+/* المختبر */
 .lab-shelf{display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin:16px 0}
 .lab-shelf button{
   background:var(--panel); border:2px solid var(--line); border-radius:14px; padding:10px;
@@ -379,7 +360,7 @@ g.node.locked{cursor:default; opacity:.85}
 .lab-shelf span{font-size:11.5px; color:var(--dim)}
 .lab-mix{
   min-height:90px; border-radius:14px; border:2px dashed var(--line);
-  display:flex; align-items:center; justify-content:center; gap:12px; margin:12px 0; padding:14px; text-align:center;
+  display:flex; align-items:center; justify-content:center; gap:12px; margin:12px 0; padding:14px; text-align:center; flex-wrap:wrap;
 }
 .lab-mix.mixing{animation:labSpin .5s infinite linear; border-color:var(--acc)}
 @keyframes labSpin{50%{filter:brightness(1.5)}}
@@ -390,15 +371,17 @@ g.node.locked{cursor:default; opacity:.85}
 .lab-log svg{width:26px; height:26px}
 .lab-center{text-align:center}
 
-/* ===== لا تغمضي ===== */
+/* لا تغمضي */
 .blink-wrap{position:relative; border-radius:14px; overflow:hidden; border:2px solid var(--line)}
 .blink-wrap svg{display:block; width:100%}
 .blink-item{cursor:pointer}
 .blink-flash{animation:bflash .6s}
 @keyframes bflash{0%{filter:brightness(2.4)}100%{filter:none}}
 .blink-top{position:absolute; top:0; right:0; left:0; z-index:3; padding:10px; text-align:center; font-weight:700; background:rgba(11,10,16,.72)}
+.tbar{height:6px; background:var(--line); border-radius:99px; overflow:hidden; max-width:380px; margin:0 auto}
+.tbar i{display:block; height:100%; background:var(--acc); transition:width .1s linear}
 
-/* ===== آلة الحظ ===== */
+/* آلة الحظ */
 .lucky-flex{display:flex; flex-direction:column; gap:16px; align-items:center}
 .machine{
   width:min(92vw,380px); border-radius:18px; border:3px solid var(--amber);
@@ -423,14 +406,14 @@ g.node.locked{cursor:default; opacity:.85}
 .skin-row b{flex:1; font-size:14px}
 .skin-row .px{font-size:10px}
 
-/* ===== القاعة الأخيرة ===== */
+/* القاعة الأخيرة */
 .vault-pads{display:grid; grid-template-columns:repeat(2,minmax(120px,150px)); gap:14px; justify-content:center; margin:18px 0}
 .vault-pads button{aspect-ratio:1; border-radius:20px; border:2px solid rgba(255,255,255,.12); cursor:pointer; transition:filter .1s, transform .1s}
 .vault-pads button:active{transform:scale(.94)}
 .vault-pads button.lit{filter:brightness(2); transform:scale(1.05)}
 .vault-info{display:flex; justify-content:center; gap:14px; color:var(--dim); font-size:13px; flex-wrap:wrap}
 
-/* ===== الألغاز النهائية ===== */
+/* الألغاز النهائية */
 .riddle-box{max-width:440px; margin:0 auto; text-align:center}
 .riddle-box p{font-size:18px; font-weight:600; line-height:1.9}
 .riddle-input{display:flex; gap:10px; margin-top:16px}
@@ -440,9 +423,9 @@ g.node.locked{cursor:default; opacity:.85}
 }
 .riddle-input input:focus{outline:none; border-color:var(--acc)}
 
-/* ===== شاشات النهاية ===== */
+/* شاشات النهاية */
 #endScreen{
-  position:fixed; inset:0; z-index:800; background:rgba(8,7,12,.97);
+  position:fixed; top:0; right:0; bottom:0; left:0; z-index:800; background:rgba(8,7,12,.97);
   display:flex; align-items:center; justify-content:center; padding:20px; overflow-y:auto;
 }
 .end-in{max-width:520px; width:100%; text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px}
@@ -450,10 +433,10 @@ g.node.locked{cursor:default; opacity:.85}
 .end-t1{font-size:clamp(12px,4vw,18px); color:var(--dim)}
 .end-t2{font-size:clamp(20px,7vw,34px); color:var(--amber); text-shadow:3px 3px 0 #4a3100}
 .end-ar{color:var(--ink); margin:0; font-size:15px}
-.end-secret{font-size:clamp(10px,3.4vw,14px); color:var(--red); border:2px solid var(--red); border-radius:10px; padding:10px 16px; animation:blinkB 1.6s infinite}
+.end-secret{font-size:clamp(10px,3.4vw,14px); color:var(--red); border:2px solid var(--red); border-radius:10px; padding:10px 16px; animation:blinkB 1.6s infinite; display:flex; align-items:center; gap:8px}
 .end-stats{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
 
-/* ===== البروفايل ===== */
+/* البروفايل */
 .prof-name{display:flex; align-items:center; gap:8px; justify-content:center}
 .prof-name input{
   background:transparent; border:none; border-bottom:1px dashed var(--line); color:var(--ink);
@@ -491,7 +474,6 @@ g.node.locked{cursor:default; opacity:.85}
 <body>
 <canvas id="dust"></canvas>
 
-<!-- شاشة العنوان -->
 <section id="splash" class="screen">
   <div class="marquee">
     <div class="mq-row" data-bulbs="11"></div>
@@ -510,17 +492,16 @@ g.node.locked{cursor:default; opacity:.85}
   <p class="splash-sub px" id="splashSub"></p>
 </section>
 
-<!-- شاشة المدينة -->
 <section id="mapScreen" class="screen hidden">
   <header id="hud">
-    <button id="hudProfileBtn" class="pill" title="ملف اللاعبة"><i data-lucide="user"></i><b class="px" id="hudLevel">1</b></button>
+    <button id="hudProfileBtn" class="pill"><i data-lucide="user"></i><b class="px" id="hudLevel">1</b></button>
     <div class="hud-stats">
       <span class="pill"><i data-lucide="coins"></i><b class="px" id="hudCoins">0</b></span>
       <span class="pill"><i data-lucide="key"></i><b class="px" id="hudKeys">0</b></span>
       <span class="pill"><i data-lucide="ticket"></i><b class="px" id="hudTickets">0</b></span>
       <span class="pill"><i data-lucide="lightbulb"></i><b class="px" id="hudHints">0</b></span>
     </div>
-    <button id="sndBtn" class="pill icon" title="الصوت"><i data-lucide="volume-2"></i></button>
+    <button id="sndBtn" class="pill icon"><i data-lucide="volume-2"></i></button>
   </header>
   <div id="mapWrap">
     <svg id="mapSvg"></svg>
@@ -533,10 +514,9 @@ g.node.locked{cursor:default; opacity:.85}
   <div id="mapHint">اسحبي الخريطة للتجول — اضغطي على أي مكان مضاء للعب</div>
 </section>
 
-<!-- شاشة اللعبة -->
 <section id="gameScreen" class="screen hidden">
   <header id="gHead">
-    <button id="gBack" class="pill icon" title="العودة"><i data-lucide="chevron-right"></i></button>
+    <button id="gBack" class="pill icon"><i data-lucide="chevron-right"></i></button>
     <div class="g-title"><b id="gTitle"></b><span class="px" id="gTitleEn"></span></div>
     <span style="width:44px"></span>
   </header>
@@ -548,7 +528,7 @@ g.node.locked{cursor:default; opacity:.85}
 
 <script>
 /* =====================================================================
-   THE MYSTERY ARCADE — مدينة ألعاب غامضة في ملف واحد
+   THE MYSTERY ARCADE — نسخة مُصلحة: النقر يعمل على كل المتصفحات
    ===================================================================== */
 
 /* ---------- أدوات عامة ---------- */
@@ -562,19 +542,15 @@ function makeBulbs(el, n){ for(let i=0;i<n;i++){ const s=document.createElement(
 
 /* ---------- اللوجو والأيقونة (للحفظ على الشاشة الرئيسية) ---------- */
 (function setupPWA(){
-  // أيقونة PNG مرسومة بالـ canvas — لنظام iOS
   try{
     const c=document.createElement('canvas'); c.width=180; c.height=180;
     const g=c.getContext('2d');
     g.fillStyle='#131019'; g.fillRect(0,0,180,180);
-    // قوس مدخل الكرنفال
     g.lineWidth=13; g.strokeStyle='#ffc247';
     g.beginPath(); g.arc(90,120,62,Math.PI,0); g.stroke();
     g.lineWidth=9; g.strokeStyle='#ff4d6b';
     g.beginPath(); g.arc(90,120,42,Math.PI,0); g.stroke();
-    // أرضية
     g.fillStyle='#2b2537'; g.fillRect(14,120,152,8);
-    // نجمة
     g.fillStyle='#ffd23f'; g.beginPath();
     for(let i=0;i<10;i++){ const r=i%2?11:26, a=-Math.PI/2+i*Math.PI/5;
       g[i?'lineTo':'moveTo'](90+Math.cos(a)*r, 92+Math.sin(a)*r); }
@@ -582,7 +558,6 @@ function makeBulbs(el, n){ for(let i=0;i<n;i++){ const s=document.createElement(
     const png=c.toDataURL('image/png');
     const appl=document.createElement('link'); appl.rel='apple-touch-icon'; appl.href=png; document.head.appendChild(appl);
     const fav=document.createElement('link'); fav.rel='icon'; fav.type='image/png'; fav.href=png; document.head.appendChild(fav);
-    // Manifest لأندرويد
     const man={ name:'The Mystery Arcade', short_name:'Mystery Arcade', start_url:'.',
       display:'standalone', background_color:'#0b0a10', theme_color:'#0b0a10',
       icons:[{src:png, sizes:'180x180', type:'image/png'}] };
@@ -592,7 +567,7 @@ function makeBulbs(el, n){ for(let i=0;i<n;i++){ const s=document.createElement(
   }catch(e){}
 })();
 
-/* ---------- نظام الصوت (Web Audio) ---------- */
+/* ---------- الصوت ---------- */
 let AC=null;
 function ac(){ if(!AC) AC=new (window.AudioContext||window.webkitAudioContext)(); if(AC.state==='suspended') AC.resume(); return AC; }
 function tone(f, dur=.12, type='sine', vol=.16, delay=0){
@@ -659,7 +634,7 @@ function addKeys(n=1, color){
   if(S.keys>=10) award('collector');
 }
 
-/* ---------- الجلود (المظاهر) ---------- */
+/* ---------- المظاهر ---------- */
 const SKINS={
   amber:{n:'الكلاسيك', c:'#ffc247', price:0},
   teal:{n:'موجة نيون', c:'#35e0b0', price:3},
@@ -734,20 +709,19 @@ function confirmBox(title, html, onYes, yesTxt='نعم'){
     {t:'إلغاء'}
   ]});
 }
-// استهلاك تلميح (أو شراؤه بعملات)
 function useHint(onUse){
   if(S.hints>0){
     S.hints--; save(); renderHUD();
     onUse(true); return;
   }
   modal({title:'لا تلميحات متبقية', html:'يمكنكِ شراء تلميح بـ <b>40 عملة</b>، أو انتظار حظك في آلة الحظ.',
-    actions:[{t:`شراء (40 ${''})`, cls:'solid', fn:()=>{
+    actions:[{t:'شراء (40 عملة)', cls:'solid', fn:()=>{
       if(S.coins<40){ toast('العملات لا تكفي…', 'coins'); return false; }
       S.coins-=40; save(); renderHUD(); onUse(true);
     }},{t:'لاحقًا'}]});
 }
 
-/* ---------- جزيئات الغبار الذهبي ---------- */
+/* ---------- غبار ذهبي ---------- */
 (function dust(){
   const c=$('#dust'), g=c.getContext('2d');
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -798,7 +772,7 @@ function isUnlocked(id){
 /* =====================================================================
    محرك الألعاب
    ===================================================================== */
-const GAMES={}; // تُملأ لاحقًا بكل لعبة
+const GAMES={};
 let currentGame=null, cleanupFns=[];
 
 function makeApi(id){
@@ -845,7 +819,6 @@ function finishGame(id, res){
   const coreCount=Object.keys(S.played).filter(k=>NODES.some(n=>n.id===k)).length;
   if(coreCount>=12) award('explorer');
 
-  // جائزة أول إكمال
   const g=GAMES[id];
   if(!g.secret && !S.firstClear[id]){
     S.firstClear[id]=true;
@@ -859,7 +832,8 @@ function finishGame(id, res){
   if(res.hints){ S.hints+=res.hints; }
   save(); renderHUD(); renderMap();
 
-  // لوحة النتيجة
+  const st=$('#gStage');
+  const old=st.querySelector('.res'); if(old) old.remove();
   const ov=document.createElement('div'); ov.className='res';
   ov.innerHTML=`
     <div class="res-ico"><i data-lucide="${g.icon}"></i></div>
@@ -874,7 +848,7 @@ function finishGame(id, res){
       <button class="btn" id="resAgain"><i data-lucide="rotate-ccw"></i>مرة أخرى</button>
       <button class="btn solid" id="resHome"><i data-lucide="map"></i>المدينة</button>
     </div>`;
-  $('#gStage').appendChild(ov); icons();
+  st.appendChild(ov); icons();
   ov.querySelector('#resAgain').onclick=()=>{ sfx('click'); startGame(); };
   ov.querySelector('#resHome').onclick=()=>{ sfx('click'); closeGame(); };
   sfx('good');
@@ -886,13 +860,14 @@ function finishGame(id, res){
 GAMES.reaction={ ar:'ردّة الفعل', en:'REACT', icon:'zap', run(api){
   const st=api.stage;
   st.innerHTML=`<div class="g-wrap">
-    <div class="game-hud"><span>الجولة<b id="rRound">1/5</b></span><span>أفضل زمن<b id="rBest">${S.bestReaction? S.bestReaction+'ms':'—'}</b></span></div>
+    <div class="game-hud"><span>الجولة<b id="rRound">1/5</b></span><span>أفضل زمن<b id="rBest">${S.bestReaction!=null? S.bestReaction+'ms':'—'}</b></span></div>
     <div class="react-box" id="rbox"><div class="r-big">اضغطي للبدء</div><div class="dim">خمس جولات — اصبري على الأخضر</div><div class="react-dots" id="rDots"></div></div>
   </div>`;
   const box=$('#rbox'), dots=$('#rDots');
   for(let i=0;i<5;i++) dots.innerHTML+='<span></span>';
-  let phase='idle', t0=0, armT=null, times=[];
+  let phase='idle', t0=0, armT=null, times=[], locked=false;
   box.addEventListener('pointerdown', ()=>{
+    if(locked) return;
     if(phase==='idle'){
       phase='arm'; box.className='react-box arm';
       box.innerHTML=`<div class="r-big">انتظري…</div><div class="dim">لا تتعجّلي</div>`;
@@ -901,7 +876,8 @@ GAMES.reaction={ ar:'ردّة الفعل', en:'REACT', icon:'zap', run(api){
       }, 1600+rnd(2700));
     }
     else if(phase==='arm'){
-      clearTimeout(armT); phase='idle'; box.className='react-box';
+      if(armT!=null) clearTimeout(armT);
+      phase='idle'; box.className='react-box';
       box.innerHTML=`<div class="r-big" style="color:var(--red)">مبكّرة!</div><div class="dim">استني الأخضر… اضغطي لإعادة الجولة</div>`;
       sfx('bad');
     }
@@ -910,23 +886,27 @@ GAMES.reaction={ ar:'ردّة الفعل', en:'REACT', icon:'zap', run(api){
       times.push(ms); phase='idle';
       box.className='react-box';
       $$('#rDots span').forEach((d,i)=>d.className = i<times.length? 'on':'');
-      if(times.length<5) $$('#rDots span')[times.length].className='cur';
-      box.innerHTML=`<div class="r-time">${ms} <small style="font-size:12px">ms</small></div><div class="r-big">${ms<200?'برق!':ms<300?'ممتازة':'جيدة'}</div><div class="dim">اضغطي للجولة التالية</div>`;
-      sfx('good');
-      $('#rRound').textContent=(times.length+1)+'/5';
-      if(times.length>=5){
+      if(times.length<5){
+        $$('#rDots span')[times.length].className='cur';
+        $('#rRound').textContent=(times.length+1)+'/5';
+        box.innerHTML=`<div class="r-time">${ms} <small style="font-size:12px">ms</small></div><div class="r-big">${ms<200?'برق!':ms<300?'ممتازة':'جيدة'}</div><div class="dim">اضغطي للجولة التالية</div>`;
+        sfx('good');
+      }else{
+        locked=true;
+        box.innerHTML=`<div class="r-time">${ms} <small style="font-size:12px">ms</small></div><div class="r-big">انتهت الجولات!</div>`;
+        sfx('good');
         const avg=Math.round(times.reduce((a,b)=>a+b,0)/5);
-        if(!S.bestReaction||avg<S.bestReaction) S.bestReaction=avg;
+        if(S.bestReaction==null||avg<S.bestReaction) S.bestReaction=avg;
         if(avg<220) api.award('speed_demon');
         save();
-        api.after(()=>api.finish({score:avg, scoreTxt:'متوسط ms', coins:times.reduce((a,m)=>a+Math.max(3,Math.round(6000/m)),0), xp:times.reduce((a,m)=>a+Math.max(3,Math.round(4000/m)),0)}), 900);
+        api.after(()=>api.finish({score:avg, scoreTxt:'متوسط ms', coins:times.reduce((a,m)=>a+Math.max(3,Math.round(6000/m)),0), xp:times.reduce((a,m)=>a+Math.max(3,Math.round(4000/m)),0)}), 1000);
       }
     }
   });
 }};
 
 /* =====================================================================
-   2) القنّاصة (التصويب)
+   2) القنّاصة
    ===================================================================== */
 GAMES.aim={ ar:'القنّاصة', en:'AIM MASTER', icon:'target', run(api){
   const st=api.stage;
@@ -966,7 +946,7 @@ GAMES.aim={ ar:'القنّاصة', en:'AIM MASTER', icon:'target', run(api){
     const remain=Math.max(0,30-el);
     $('#aTime').textContent=Math.ceil(remain);
     const wave=Math.min(3, 1+Math.floor(el/10));
-    if($('#aWave').textContent!=wave){ $('#aWave').textContent=wave; toast(`الموجة ${wave} — أسرع!`,'flame'); }
+    if($('#aWave').textContent!=String(wave)){ $('#aWave').textContent=wave; toast(`الموجة ${wave} — أسرع!`,'flame'); }
     const speed=1+(wave-1)*.45;
     if(now-lastSpawn > 950-wave*170){ lastSpawn=now; spawn(speed); }
     const W=arena.clientWidth, H=arena.clientHeight;
@@ -980,7 +960,7 @@ GAMES.aim={ ar:'القنّاصة', en:'AIM MASTER', icon:'target', run(api){
     }
     if(remain<=0){
       running=false;
-      targets.forEach(t=>t.el&&t.el.remove());
+      targets.forEach(t=>{ if(t.el) t.el.remove(); });
       if(hits>=25) api.award('sharpshooter');
       if(bombsHit===0&&hits>=15) api.award('bomb_safe');
       if(score>S.bestAim) S.bestAim=score;
@@ -994,7 +974,7 @@ GAMES.aim={ ar:'القنّاصة', en:'AIM MASTER', icon:'target', run(api){
 }};
 
 /* =====================================================================
-   3) مختبر الذاكرة — «تذكّري الترتيب»
+   3) مختبر الذاكرة
    ===================================================================== */
 const SHAPES={
   star:{c:'#ffd23f', p:'M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17l-6.1 3.6 1.4-6.8L2.2 9.1l6.9-.8z'},
@@ -1007,60 +987,66 @@ const SHAPES={
   key:{c:'#e8d5a3', p:'M14 3a7 7 0 0 0-6.7 9L2 17.3V22h4.7l1.5-1.5v-2h2v-2h2l1.1-1.1A7 7 0 1 0 14 3zm2.5 5.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4z'},
   flower:{c:'#ff7eb6', p:'M12 2a3 3 0 0 1 3 3 3 3 0 1 1 2.8 5A3 3 0 0 1 12 15a3 3 0 0 1-5.8-5A3 3 0 0 1 9 5a3 3 0 0 1 3-3zm0 13v7'},
 };
-function shapeSVG(k, extra=''){
+function shapeSVG(k){
   const s=SHAPES[k];
-  return `<svg viewBox="0 0 24 24" ${extra}><path d="${s.p}" fill="${s.c}" stroke="rgba(0,0,0,.25)" stroke-width=".6"/></svg>`;
+  return `<svg viewBox="0 0 24 24"><path d="${s.p}" fill="${s.c}" stroke="rgba(0,0,0,.25)" stroke-width=".6"/></svg>`;
 }
 GAMES.memory={ ar:'الذاكرة', en:'MEMORY LAB', icon:'brain', run(api){
   const st=api.stage;
-  st.innerHTML=`<div class="g-wrap" id="memWrap">
-    <div class="game-hud"><span>المستوى<b id="mLevel">1/3</b></span><span>الأخطاء<b id="mErr">0</b></span></div>
+  st.innerHTML=`<div class="g-wrap">
+    <div class="game-hud"><span>المستوى<b id="mLevel">1/3</b></span><span>الأخطاء<b id="mErr">0</b>/3</span></div>
     <div id="memArea"><div class="stage-tip">احفظي ترتيب الرموز…</div></div>
   </div>`;
   const keys=Object.keys(SHAPES);
-  let level=0, errors=0; const LENS=[4,5,6];
+  let level=0, errors=0, finished=false;
+  const LENS=[4,5,6];
   async function playLevel(){
-    $('#mLevel').textContent=(level+1)+'/3';
-    $('#mErr').textContent=errors;
+    if(finished) return;
+    $('#mLevel').textContent=(level+1)+'/3'; $('#mErr').textContent=errors;
     const area=$('#memArea');
-    // تسلسل
     const pool=shuffle([...keys]);
     const seq=pool.slice(0, LENS[level]);
-    const gridKeys=shuffle([...new Set([...seq, ...pool.slice(LENS[level], LENS[level]+(8-LENS[level]))])]);
-    // المرحلة 1: العرض
+    const gridKeys=shuffle([...new Set([...seq, ...pool.slice(LENS[level], 8)])]);
     area.innerHTML=`<div class="mem-card" id="memCard"></div><div class="mem-order" id="memOrder">${seq.map((_,i)=>`<i>${i+1}</i>`).join('')}</div>`;
     for(let i=0;i<seq.length;i++){
-      $('#memCard').innerHTML=shapeSVG(seq[i]);
-      $('#memOrder').children[i].classList.add('done');
+      const mc=$('#memCard'); if(!mc) return;
+      mc.innerHTML=shapeSVG(seq[i]);
+      const od=$('#memOrder'); if(od&&od.children[i]) od.children[i].classList.add('done');
       tone(500+i*90,.12,'triangle',.1); sfx('tick');
       await sleep(880);
     }
-    $('#memCard').innerHTML='<div class="dim" style="font-size:13px">أعيدي الترتيب بالنقر</div>';
-    // المرحلة 2: الاختيار
+    const mc2=$('#memCard');
+    if(mc2) mc2.innerHTML='<div class="dim" style="font-size:13px">أعيدي الترتيب بالنقر</div>';
     area.innerHTML+=`<div class="mem-grid" id="memGrid">${gridKeys.map(k=>`<button data-k="${k}">${shapeSVG(k)}</button>`).join('')}</div>`;
     let step=0;
     $('#memGrid').addEventListener('click', e=>{
-      const b=e.target.closest('button'); if(!b) return;
+      const b=e.target.closest('button'); if(!b||finished) return;
       if(b.dataset.k===seq[step]){
         b.classList.add('hit'); sfx('pop'); tone(600+step*80,.1,'triangle',.1);
         step++;
         if(step>=seq.length){
           level++; sfx('good');
           if(level>=3){
-            if(errors===0){ api.award('perfect_memory'); addKeys(1,'blue'); save();
-              api.finish({score:100, coins:45+errors===0?45:0, xp:60, keyColor:null,
-                notes: errors===0? [{i:'key', t:'المفتاح الأزرق — يفتح صندوقًا في غرفة الصورة!'}]:[]});
-            } else api.finish({score:100-errors*10, coins:30, xp:45});
+            finished=true;
+            if(errors===0){
+              api.award('perfect_memory'); addKeys(1,'blue'); save();
+              api.finish({score:100, coins:90, xp:70,
+                notes:[{i:'key', t:'المفتاح الأزرق — يفتح صندوقًا في غرفة الصورة!'}]});
+            } else {
+              api.finish({score:Math.max(10,100-errors*15), coins:30, xp:45});
+            }
           }
           else api.after(playLevel, 700);
         }
       }else{
         errors++; b.classList.add('bad'); sfx('bad'); $('#mErr').textContent=errors;
-        api.after(()=>{ 
-          if(errors>=3) api.finish({score:Math.max(0,100-errors*10), coins:10+level*8, xp:15});
-          else toast(`خطأ! (${errors}/3)`,'x');
-        }, 500);
-        if(errors>=3) api.after(()=>{}, 100);
+        if(errors>=3){
+          finished=true;
+          api.after(()=>api.finish({score:level*20, scoreTxt:'تقدّم', coins:8+level*6, xp:10+level*6}), 600);
+        }else{
+          toast(`خطأ! لديكِ ${3-errors} ${3-errors===1?'محاولة':'محاولات'}`,'x');
+          setTimeout(()=>b.classList.remove('bad'), 600);
+        }
       }
     });
   }
@@ -1068,7 +1054,7 @@ GAMES.memory={ ar:'الذاكرة', en:'MEMORY LAB', icon:'brain', run(api){
 }};
 
 /* =====================================================================
-   4) مختبر الألوان (Stroop)
+   4) مختبر الألوان
    ===================================================================== */
 const COLORS=[
   {n:'أحمر', c:'#ff4d6b', k:'r'},
@@ -1084,7 +1070,7 @@ GAMES.color={ ar:'الألوان', en:'COLOR LAB', icon:'palette', run(api){
     <div class="stroop-btns" id="cBtns"></div>
     <div class="stroop-combo" id="cCombo"></div>
   </div>`;
-  let ok=0, wrong=0, combo=0, best=0, endT=Date.now()+30000;
+  let ok=0, combo=0, best=0, endT=Date.now()+30000, ended=false;
   function next(){
     const w=COLORS[rnd(4)];
     let ink=COLORS[rnd(4)];
@@ -1097,18 +1083,20 @@ GAMES.color={ ar:'الألوان', en:'COLOR LAB', icon:'palette', run(api){
     $('#cCombo').innerHTML=`سلسلة: <b>${combo}</b> &nbsp;|&nbsp; اختاري <b>لون الكلمة</b> لا معناها`;
   }
   $('#cBtns').addEventListener('click', e=>{
+    if(ended) return;
     const b=e.target.closest('button'); if(!b) return;
     if(b.dataset.k===$('#cBtns').dataset.ink){
       ok++; combo++; best=Math.max(best,combo); sfx('pop'); tone(700+combo*40,.07,'triangle',.1);
-    }else{ wrong++; combo=0; sfx('bad'); }
+    }else{ combo=0; sfx('bad'); }
     $('#cOk').textContent=ok; next();
   });
   next();
   const tm=api.every(()=>{
+    if(ended) return;
     const r=Math.ceil((endT-Date.now())/1000);
     $('#cTime').textContent=Math.max(0,r);
     if(r<=0){
-      clearInterval(tm);
+      ended=true; clearInterval(tm);
       if(ok>=20) api.award('stroop');
       api.finish({score:ok, coins:ok*2+best*2, xp:ok*2});
     }
@@ -1119,11 +1107,11 @@ GAMES.color={ ar:'الألوان', en:'COLOR LAB', icon:'palette', run(api){
    5) الكلمات المبعثرة
    ===================================================================== */
 const WCATS=[
-  {n:'سيارات', icon:'car', words:['TESLA','HONDA','MAZDA','NISSAN','JEEP','AUDI','FERRARI','PORSCHE']},
-  {n:'أطعمة', icon:'pizza', words:['PIZZA','BURGER','SALAD','PASTA','MANGO','HONEY','BREAD','OLIVE']},
-  {n:'دول', icon:'globe', words:['EGYPT','JAPAN','SPAIN','KENYA','BRAZIL','NORWAY','QATAR','INDIA']},
-  {n:'أفلام', icon:'clapperboard', words:['TITANIC','MATRIX','JUMANJI','SHREK','UP','CARS','ALADDIN','MOANA']},
-  {n:'برمجة', icon:'code', words:['TODO','LOOP','DEBUG','PYTHON','ARRAY','CLASS','BINARY','STACK']},
+  {n:'سيارات', words:['TESLA','HONDA','MAZDA','NISSAN','JEEP','AUDI','FERRARI','PORSCHE']},
+  {n:'أطعمة', words:['PIZZA','BURGER','SALAD','PASTA','MANGO','HONEY','BREAD','OLIVE']},
+  {n:'دول', words:['EGYPT','JAPAN','SPAIN','KENYA','BRAZIL','NORWAY','QATAR','INDIA']},
+  {n:'أفلام', words:['TITANIC','MATRIX','JUMANJI','SHREK','ALADDIN','MOANA','CARS','UP']},
+  {n:'برمجة', words:['TODO','LOOP','DEBUG','PYTHON','ARRAY','CLASS','BINARY','STACK']},
 ];
 GAMES.word={ ar:'الكلمات', en:'WORD SCRAMBLE', icon:'type', run(api){
   const st=api.stage;
@@ -1139,13 +1127,13 @@ GAMES.word={ ar:'الكلمات', en:'WORD SCRAMBLE', icon:'type', run(api){
   </div>`;
   const cat=WCATS[rnd(WCATS.length)];
   const words=shuffle([...cat.words]).slice(0,5);
-  let idx=0, solved=0, hintsUsed=0;
+  let idx=0, solved=0, hintsUsed=0, ended=false;
   let answer=[], built=[], timerEnd=0;
   const tm=api.every(()=>{
-    if(!timerEnd) return;
+    if(!timerEnd||ended) return;
     const r=Math.ceil((timerEnd-Date.now())/1000);
     $('#wTime').textContent=Math.max(0,r);
-    if(r<=0){ clearInterval(tm); finish(); }
+    if(r<=0){ ended=true; clearInterval(tm); finish(); }
   },500);
   function scramble(w){
     let a=w.split('');
@@ -1154,19 +1142,19 @@ GAMES.word={ ar:'الكلمات', en:'WORD SCRAMBLE', icon:'type', run(api){
   }
   function render(){
     $('#wIdx').textContent=(idx+1)+'/5'; $('#wOk').textContent=solved;
-    $('#wCat').innerHTML=`الفئة: <b>${cat.n}</b> — ${words.length} حروف؟ لا… ${words[idx].length} حروف`;
     answer=words[idx]; built=[];
-    const letters=scramble(answer);
+    $('#wCat').innerHTML=`الفئة: <b>${cat.n}</b> — رتّبي ${answer.length} حروف`;
     $('#wSlots').innerHTML=answer.split('').map(()=>'<i></i>').join('');
-    $('#wTray').innerHTML=letters.map((L,i)=>`<button data-i="${i}">${L}</button>`).join('');
+    $('#wTray').innerHTML=scramble(answer).map((L,i)=>`<button data-i="${i}">${L}</button>`).join('');
     timerEnd=Date.now()+75000; $('#wTime').textContent=75;
   }
   $('#wTray').addEventListener('click', e=>{
+    if(ended) return;
     const b=e.target.closest('button'); if(!b||b.classList.contains('used')) return;
-    const slotI=built.length; if(slotI>=answer.length) return;
+    if(built.length>=answer.length) return;
     b.classList.add('used'); sfx('tick');
     built.push(b.textContent);
-    const slot=$('#wSlots').children[slotI];
+    const slot=$('#wSlots').children[built.length-1];
     slot.textContent=b.textContent; slot.className='';
     if(built.length===answer.length) check();
   });
@@ -1175,34 +1163,33 @@ GAMES.word={ ar:'الكلمات', en:'WORD SCRAMBLE', icon:'type', run(api){
       solved++; sfx('good');
       $$('#wSlots i').forEach(s=>s.className='fixed');
       idx++;
-      if(idx>=5){ clearInterval(tm); finish(); }
+      if(idx>=5){ ended=true; clearInterval(tm); finish(); }
       else api.after(render, 800);
     }else{
       sfx('bad');
       $$('#wSlots i').forEach(s=>{ if(!s.classList.contains('fixed')) s.className='wrong'; });
       api.after(()=>{
-        built=[]; 
+        built=[];
         $$('#wSlots i').forEach(s=>{ if(!s.classList.contains('fixed')){s.textContent=''; s.className='';} });
         $$('#wTray button').forEach(b=>b.classList.remove('used'));
       }, 500);
     }
   }
   $('#wClear').addEventListener('click', ()=>{
+    if(ended) return;
     sfx('click'); built=[];
     $$('#wSlots i').forEach(s=>{ if(!s.classList.contains('fixed')){s.textContent=''; s.className='';} });
     $$('#wTray button').forEach(b=>b.classList.remove('used'));
   });
   $('#wHint').addEventListener('click', ()=>{
-    if(built.length>=answer.length) return;
+    if(ended||built.length>=answer.length) return;
     useHint(ok=>{
       if(!ok) return;
       hintsUsed++;
       const need=answer[built.length];
-      // املئي الحرف التالي بالقيمة الصحيحة
       built.push(need);
       const slot=$('#wSlots').children[built.length-1];
       slot.textContent=need; slot.className='fixed';
-      // أوقفي زر الحرف المطابق إن وُجد
       const b=[...$$('#wTray button')].find(x=>!x.classList.contains('used')&&x.textContent===need);
       if(b) b.classList.add('used');
       if(built.length===answer.length) check();
@@ -1233,40 +1220,44 @@ function padSVG(p){
 }
 GAMES.music={ ar:'النغمات', en:'MUSIC MEMORY', icon:'music', run(api){
   const st=api.stage;
-  st.innerHTML=`<div class="g-wrap" id="muWrap">
+  st.innerHTML=`<div class="g-wrap">
     <div class="game-hud"><span>التسلسل<b id="muLen">3</b></span><span>مكتمل<b id="muDone">0/4</b></span></div>
     <div class="stage-tip" id="muTip">شاهدي وأصغِي… ثم أعيدي الترتيب</div>
     <div class="music-pads" id="muPads"></div>
   </div>`;
   $('#muPads').innerHTML=MPADS.map((p,i)=>`<button data-i="${i}" style="border-color:${p.c}44"><svg viewBox="0 0 44 44">${padSVG(p)}</svg></button>`).join('');
   let alive=true; api.done(()=>alive=false);
-  let level=0, done=0, seq=[], step=0, accepting=false;
+  let level=0, done=0, seq=[], step=0, accepting=false, ended=false;
   const LENS=[3,4,5,6];
   function flash(i, dur=420){
     const b=$(`#muPads button[data-i="${i}"]`);
+    if(!b) return;
     b.classList.add('pad-lit');
     tone(MPADS[i].f, .32, MPADS[i].w, .14);
     setTimeout(()=>b.classList.remove('pad-lit'), dur);
   }
   async function playLevel(){
+    if(!alive||ended) return;
     accepting=false; step=0;
     $('#muLen').textContent=LENS[level]; $('#muDone').textContent=done+'/4';
     $('#muTip').textContent='شاهدي وأصغِي…';
     seq=Array.from({length:LENS[level]},()=>rnd(4));
-    await sleep(700); if(!alive) return;
-    for(const p of seq){ if(!alive) return; flash(p); await sleep(620); }
-    if(!alive) return;
+    await sleep(700); if(!alive||ended) return;
+    for(const p of seq){ if(!alive||ended) return; flash(p); await sleep(620); }
+    if(!alive||ended) return;
     $('#muTip').textContent='دوركِ — أعيدي الترتيب';
     accepting=true;
   }
   $('#muPads').addEventListener('click', e=>{
-    const b=e.target.closest('button'); if(!b||!accepting) return;
+    if(!accepting||ended) return;
+    const b=e.target.closest('button'); if(!b) return;
     const i=+b.dataset.i; flash(i, 260);
     if(i===seq[step]){
       step++;
       if(step>=seq.length){
         accepting=false; level++; done++; sfx('good');
         if(level>=4){
+          ended=true;
           api.award('musical_ear');
           api.finish({score:4, scoreTxt:'مستويات', coins:60, xp:50});
         }else{
@@ -1275,7 +1266,7 @@ GAMES.music={ ar:'النغمات', en:'MUSIC MEMORY', icon:'music', run(api){
         }
       }
     }else{
-      accepting=false; sfx('bad');
+      accepting=false; ended=true; sfx('bad');
       toast('نغمة خاطئة — انتهت الجولة','x');
       api.finish({score:done, scoreTxt:'مستويات', coins:done*15, xp:done*12});
     }
@@ -1289,54 +1280,41 @@ GAMES.music={ ar:'النغمات', en:'MUSIC MEMORY', icon:'music', run(api){
 function drawArcadeScene(){
   const c=document.createElement('canvas'); c.width=360; c.height=360;
   const g=c.getContext('2d');
-  // سماء الليل
   const sky=g.createLinearGradient(0,0,0,200);
   sky.addColorStop(0,'#191430'); sky.addColorStop(1,'#0d0a14');
   g.fillStyle=sky; g.fillRect(0,0,360,220);
-  // نجوم
   for(let i=0;i<26;i++){ g.fillStyle='rgba(255,255,255,'+(.25+Math.random()*.5)+')';
     g.fillRect(Math.random()*360, Math.random()*150, 1.6, 1.6); }
-  // القمر
   g.fillStyle='#f0e9d9'; g.beginPath(); g.arc(300,52,20,0,6.29); g.fill();
   g.fillStyle='#191430'; g.beginPath(); g.arc(292,46,17,0,6.29); g.fill();
-  // الأرض
   g.fillStyle='#111721'; g.fillRect(0,220,360,140);
   g.strokeStyle='#1b2331'; g.lineWidth=1;
   for(let y=232;y<360;y+=18){ g.beginPath(); g.moveTo(0,y); g.lineTo(360,y); g.stroke(); }
-  // مبنى الأركيد
   g.fillStyle='#221d33'; g.fillRect(70,90,220,140);
   g.strokeStyle='#3a2f4a'; g.strokeRect(70,90,220,140);
-  // المظلة (marquee)
   g.fillStyle='#ffc247'; g.fillRect(70,90,220,22);
   g.fillStyle='#131019';
   g.font='bold 13px monospace'; g.textAlign='center'; g.fillText('★ ARCADE ★',180,106);
-  // أضواء المظلة
-  for(let x=80;x<290;x+=20){ g.fillStyle=(x/20|0)%2? '#ff4d6b':'#ffd23f';
+  for(let x=80;x<290;x+=20){ g.fillStyle=((x/20)|0)%2? '#ff4d6b':'#ffd23f';
     g.beginPath(); g.arc(x,116,3,0,6.29); g.fill(); }
-  // نوافذ مضيئة
   for(const wx of [88,120,212,244]){
     g.fillStyle='#ffc247'; g.fillRect(wx,132,26,26);
     g.strokeStyle='#131019'; g.strokeRect(wx,132,26,26);
     g.beginPath(); g.moveTo(wx,145); g.lineTo(wx+26,145); g.moveTo(wx+13,132); g.lineTo(wx+13,158); g.stroke();
   }
-  // آلة + لوحة إعلانية
   g.fillStyle='#2b2537'; g.fillRect(152,132,56,44);
   g.fillStyle='#0a0810'; g.fillRect(158,138,44,20);
   g.fillStyle='#35e0b0'; g.fillRect(162,142,8,8); g.fillRect(174,142,8,8); g.fillRect(186,142,8,8);
-  // الباب
   g.fillStyle='#0e0c13'; g.fillRect(160,180,40,50);
   g.strokeStyle='#ffc247'; g.strokeRect(160,180,40,50);
   g.fillStyle='#ffc247'; g.beginPath(); g.arc(192,206,3,0,6.29); g.fill();
-  // فتاتيس أعلى المبنى
   g.fillStyle='#ff4d6b';
   g.beginPath(); g.moveTo(62,90); g.lineTo(80,62); g.lineTo(98,90); g.closePath(); g.fill();
   g.fillStyle='#35e0b0';
   g.beginPath(); g.moveTo(262,90); g.lineTo(280,62); g.lineTo(298,90); g.closePath(); g.fill();
-  // شجرة جانبية
   g.fillStyle='#14231b'; g.beginPath(); g.arc(30,196,26,0,6.29); g.fill();
   g.fillStyle='#0d1510'; g.beginPath(); g.arc(22,206,17,0,6.29); g.fill();
   g.fillStyle='#3a2f4a'; g.fillRect(27,214,7,16);
-  // لافتة أرضية
   g.fillStyle='#131019'; g.fillRect(120,268,120,26);
   g.strokeStyle='#2b2537'; g.strokeRect(120,268,120,26);
   g.fillStyle='#ffc247'; g.font='bold 11px monospace'; g.fillText('OPEN 24H',180,285);
@@ -1356,7 +1334,7 @@ GAMES.puzzle={ ar:'غرفة الصورة', en:'PUZZLE ROOM', icon:'puzzle', run(
     </div>
     <div class="stage-tip">اضغطي أي قطعة بجوار الفراغ لتحريكها</div>
   </div>`;
-  const N=3, board=$('#pBoard');
+  const board=$('#pBoard');
   let pos=Array.from({length:9},(_,i)=> i<8? i:null); // pos[خلية]=رقم القطعة
   let blank=8, moves=0, t0=Date.now(), solvedFlag=false;
   const tiles=[];
@@ -1382,21 +1360,20 @@ GAMES.puzzle={ ar:'غرفة الصورة', en:'PUZZLE ROOM', icon:'puzzle', run(
     $('#pMoves').textContent=moves; sfx('tick'); layout();
     if(pos.every((v,idx)=> idx===8? v===null : v===idx)) win();
   }
+  // خلط صحيح: نتحرك دائمًا من الحالة المحلولة بمقلولة الفراغ نفسها
   function shuffleBoard(){
-    for(let s=0;s<160;s++){
-      const br=(blank/3)|0, bc=blank%3;
-      const opts=[];
+    for(let s=0;s<220;s++){
+      const br=(blank/3)|0, bc=blank%3, opts=[];
       if(br>0) opts.push(blank-3); if(br<2) opts.push(blank+3);
       if(bc>0) opts.push(blank-1); if(bc<2) opts.push(blank+1);
-      const pick=pos[opts[rnd(opts.length)]];
-      pos[blank]=pick; pos[pos.indexOf(pick)]=null;
-      blank=pos.indexOf(null)===-1? opts[0] : pos.indexOf(null);
-      blank=pos.lastIndexOf(null);
+      const from=opts[rnd(opts.length)];
+      pos[blank]=pos[from]; pos[from]=null; blank=from;
     }
     if(pos.every((v,idx)=> idx===8? v===null : v===idx)) shuffleBoard();
+    layout();
   }
   shuffleBoard(); layout();
-  api.every(()=>{ $('#pTime').textContent=Math.floor((Date.now()-t0)/1000); },1000);
+  api.every(()=>{ if(!solvedFlag) $('#pTime').textContent=Math.floor((Date.now()-t0)/1000); },1000);
   function win(){
     solvedFlag=true; sfx('good'); api.award('puzzle_solver');
     const sec=Math.floor((Date.now()-t0)/1000);
@@ -1404,7 +1381,7 @@ GAMES.puzzle={ ar:'غرفة الصورة', en:'PUZZLE ROOM', icon:'puzzle', run(
     const proceed=()=>api.finish({score:sec, scoreTxt:'ثانية', coins:Math.max(30,90-sec), xp:60, notes});
     if(S.keyColors.blue && !S.boxOpened){
       S.boxOpened=true;
-      S.scrollCode=(''+(1000+rnd(9000)));
+      S.scrollCode=String(1000+rnd(9000));
       S.scroll=true; save(); api.award('treasure'); sfx('key');
       modal({title:'صندوق أزرق خلف اللوحة', html:`
         <p>استخدمتِ <b>المفتاح الأزرق</b>… انفتح الصندوق!</p>
@@ -1445,24 +1422,25 @@ function genLock(){
     const pool=shuffle([0,1,2,3,4,5,6,7,8,9]);
     const code=[pool[0],pool[1],pool[2]], dec=pool.slice(3);
     const clues=[];
-    { // رقم واحد صحيح في مكانه
+    {
       const i=rnd(3), o=[0,1,2].filter(j=>j!==i), g=[];
       g[i]=code[i]; g[o[0]]=dec[0]; g[o[1]]=dec[1]; clues.push({g, b:1, c:0});
     }
-    { // رقم واحد صحيح بمكان خطأ
+    {
       const i=rnd(3), j=(i+1+rnd(2))%3, g=[];
-      g[i]=code[j]; [0,1,2].filter(k=>k!==i).forEach((k,m)=>g[k]=dec[2+m]); clues.push({g, b:0, c:1});
+      g[i]=code[j];
+      [0,1,2].filter(k=>k!==i).forEach((k,m)=>g[k]=dec[2+m]);
+      clues.push({g, b:0, c:1});
     }
-    { // رقمان صحيحان بمكانين خطأ
+    {
       const pr=[[0,1],[1,2],[0,2]][rnd(3)], third=[0,1,2].find(k=>k!==pr[0]&&k!==pr[1]), g=[];
       g[pr[0]]=code[pr[1]]; g[pr[1]]=code[pr[0]]; g[third]=dec[5]; clues.push({g, b:0, c:2});
     }
-    // ربّما نضيف "لا شيء صحيح" إذا لم يكفِ
     const extra={g:[dec[0],dec[1],dec[2]], b:0, c:0};
     for(const withExtra of [false,true]){
       const test=withExtra? [...clues, extra]: clues;
       const sols=ALL.filter(cand=>test.every(cl=>{
-        const [b,c]=analyze(cl.g,cand); return b===cl.b&&c===cl.c;
+        const r=analyze(cl.g,cand); return r[0]===cl.b&&r[1]===cl.c;
       }));
       if(sols.length===1) return {code, clues:test};
     }
@@ -1473,7 +1451,6 @@ function genLock(){
 GAMES.code={ ar:'الشفرات', en:'CODE BREAKER', icon:'binary', run(api){
   const st=api.stage;
   const P=genLock();
-  const hasScroll=S.scroll&&!S.vaultOpened;
   st.innerHTML=`<div class="g-wrap">
     <div class="story-line">الباب الغربي للمدينة يقبل رمزًا من <b>ثلاث خانات</b>. على الجدار محاولاتٌ قديمة تركها لاعب مجهول…</div>
     <div class="code-clues">${P.clues.map(cl=>`
@@ -1491,20 +1468,21 @@ GAMES.code={ ar:'الشفرات', en:'CODE BREAKER', icon:'binary', run(api){
   </div>`;
   let entry=[], attempts=0, solved=false;
   const slots=$$('#kSlots i');
-  function paint(){ slots.forEach((s,i)=>{ s.textContent=entry[i]??''; s.className=entry[i]!=null?'full':''; }); }
+  function paint(){ slots.forEach((s,i)=>{ s.textContent=entry[i]!=null?entry[i]:''; s.className=entry[i]!=null?'full':''; }); }
   $('#kPad').addEventListener('click', e=>{
     const b=e.target.closest('button'); if(!b||solved) return;
     const n=b.dataset.n;
     if(n==='c'){ entry=[]; paint(); sfx('click'); }
     else if(n==='ok'){
       if(entry.length<3){ sfx('bad'); slots.forEach(s=>s.classList.add('no')); setTimeout(()=>paint(),400); return; }
-      const [bb,cc]=analyze(entry, P.code);
-      if(bb===3){ solved=true; sfx('good'); api.award('code_cracker');
+      const r=analyze(entry, P.code);
+      if(r[0]===3){
+        solved=true; sfx('good'); api.award('code_cracker');
         slots.forEach(s=>s.classList.add('ok'));
         api.after(openVault, 800);
       }else{
         attempts++; sfx('bad');
-        $('#kAtt').innerHTML+=`<div><span class="clue-code">${entry.join(' ')}</span><span>${CPHRASE[bb+'-'+cc]||'لا يوجد أي رقمٍ صحيح.'}</span></div>`;
+        $('#kAtt').innerHTML+=`<div><span class="clue-code">${entry.join(' ')}</span><span>${CPHRASE[r[0]+'-'+r[1]]||'لا يوجد أي رقمٍ صحيح.'}</span></div>`;
         slots.forEach(s=>s.classList.add('no'));
         setTimeout(()=>{ entry=[]; paint(); }, 600);
       }
@@ -1512,7 +1490,8 @@ GAMES.code={ ar:'الشفرات', en:'CODE BREAKER', icon:'binary', run(api){
     else if(entry.length<3){ entry.push(+n); paint(); sfx('tick'); }
   });
   function openVault(){
-    if(!hasScroll){ 
+    // نتحقق لحظة الحل — عشان لو جيتي بالرقاقة من جولة سابقة
+    if(!(S.scroll && !S.vaultOpened)){
       api.finish({score:Math.max(1,10-attempts), scoreTxt:'محاولات زائدة', coins:Math.max(20,90-attempts*10), xp:70});
       return;
     }
@@ -1532,7 +1511,7 @@ GAMES.code={ ar:'الشفرات', en:'CODE BREAKER', icon:'binary', run(api){
       </div>`;
     icons();
     const vslots=$$('#vSlots i');
-    const paintV=()=>vslots.forEach((s,i)=>{ s.textContent=ventry[i]??''; s.className=ventry[i]!=null?'full':''; });
+    const paintV=()=>vslots.forEach((s,i)=>{ s.textContent=ventry[i]!=null?ventry[i]:''; s.className=ventry[i]!=null?'full':''; });
     $('#vPad').addEventListener('click', e=>{
       const b=e.target.closest('button'); if(!b) return;
       const n=b.dataset.n;
@@ -1542,7 +1521,7 @@ GAMES.code={ ar:'الشفرات', en:'CODE BREAKER', icon:'binary', run(api){
           S.vaultOpened=true; S.clues.code=true; save();
           api.award('vault'); sfx('key'); addKeys(1,'golden');
           vslots.forEach(s=>s.classList.add('ok'));
-          api.finish({score:1, scoreTxt:'خزنة مفتوحة', coins:100, xp:80, keyColor:null, notes:[
+          api.finish({score:1, scoreTxt:'خزنة مفتوحة', coins:100, xp:80, notes:[
             {i:'key', t:'المفتاح الذهبي — من الخزنة الخفية!'},
             {i:'search', t:'قرينة #1: «حيث تنام الأضواء، يستيقظ الحبر الأحمر»'},
           ]});
@@ -1577,25 +1556,20 @@ GAMES.detective={ ar:'المحقق', en:'DETECTIVE ROOM', icon:'search', run(api
       <rect width="640" height="300" fill="#12101a"/>
       <rect y="230" width="640" height="70" fill="#0e141d"/>
       <line x1="0" y1="230" x2="640" y2="230" stroke="#1e2530" stroke-width="2"/>
-      <!-- نافذة -->
       <rect x="60" y="40" width="110" height="80" rx="4" fill="#191430" stroke="#2b2537"/>
       <line x1="115" y1="40" x2="115" y2="120" stroke="#2b2537"/>
       <circle cx="95" cy="70" r="10" fill="#f0e9d9" opacity=".8"/>
-      <!-- المكتب -->
       <rect x="250" y="150" width="200" height="16" rx="3" fill="#2b2537"/>
       <rect x="260" y="166" width="12" height="64" fill="#221d33"/>
       <rect x="428" y="166" width="12" height="64" fill="#221d33"/>
-      <!-- الكوب (دليل) -->
       <g class="hotspot" data-ev="cup">
         <rect x="300" y="128" width="18" height="22" rx="3" fill="#c39bff"/>
         <rect x="316" y="134" width="6" height="10" rx="2" fill="#c39bff"/>
         <circle cx="309" cy="139" r="26" fill="none" stroke="#35e0b0" stroke-width="2" opacity=".7"/>
       </g>
-      <!-- ساعة حائط -->
       <circle cx="560" cy="80" r="26" fill="#1b1726" stroke="#2b2537" stroke-width="3"/>
       <line x1="560" y1="80" x2="560" y2="64" stroke="#ffc247" stroke-width="2"/>
       <line x1="560" y1="80" x2="572" y2="84" stroke="#f0e9d9" stroke-width="2"/>
-      <!-- الخزانة (دليل المعطف) -->
       <g class="hotspot" data-ev="coat">
         <rect x="330" y="60" width="90" height="90" rx="4" fill="#1b1726" stroke="#2b2537"/>
         <line x1="375" y1="60" x2="375" y2="150" stroke="#2b2537" stroke-width="2"/>
@@ -1604,19 +1578,17 @@ GAMES.detective={ ar:'المحقق', en:'DETECTIVE ROOM', icon:'search', run(api
         <path d="M340 120 L356 96 L372 120 Z" fill="#ff4d6b" opacity=".85"/>
         <circle cx="375" cy="105" r="34" fill="none" stroke="#35e0b0" stroke-width="2" opacity=".7"/>
       </g>
-      <!-- الكاميرا (دليل) -->
       <g class="hotspot" data-ev="cam">
         <rect x="130" y="28" width="30" height="16" rx="4" fill="#2b2537" transform="rotate(-14 145 36)"/>
         <circle cx="158" cy="42" r="5" fill="#ff4d6b"/>
         <line x1="145" y1="50" x2="138" y2="62" stroke="#2b2537" stroke-width="3"/>
         <circle cx="145" cy="44" r="30" fill="none" stroke="#35e0b0" stroke-width="2" opacity=".7"/>
       </g>
-      <!-- باب -->
       <rect x="520" y="120" width="70" height="110" rx="3" fill="#0e0c13" stroke="#2b2537"/>
       <circle cx="578" cy="178" r="4" fill="#ffc247"/>
     </svg>
     <div class="det-cards">
-      ${SUSPECTS.map((s,i)=>`<div class="det-card">
+      ${SUSPECTS.map(s=>`<div class="det-card">
         <div class="av" style="background:${s.c}"><i data-lucide="user"></i></div>
         <b>${s.n}</b><span class="dim" style="font-size:11px">${s.role}</span>
         <q>${s.q}</q>
@@ -1630,13 +1602,13 @@ GAMES.detective={ ar:'المحقق', en:'DETECTIVE ROOM', icon:'search', run(api
   </div>`;
   let hints=0;
   const found={};
-  function evFound(k){
+  $$('.hotspot').forEach(hs=>hs.addEventListener('pointerdown', ()=>{
+    const k=hs.dataset.ev;
     if(found[k]) return;
     found[k]=true; sfx('pop');
     $('#evList').innerHTML+=`<div><i data-lucide="check"></i><span><b>${EVIDENCE[k].t}:</b> ${EVIDENCE[k].d}</span></div>`;
     toast('دليل جديد في الملف','search'); icons();
-  }
-  $$('.hotspot').forEach(hs=>hs.addEventListener('pointerdown', ()=>evFound(hs.dataset.ev)));
+  }));
   $('#detHint').addEventListener('click', ()=>{
     useHint(ok=>{ if(!ok) return; hints++;
       toast('من ادّعت أنها غادرت مبكرًا؟… راجعي تقرير الكاميرا','lightbulb');
@@ -1709,28 +1681,29 @@ GAMES.experiment={ ar:'المختبر', en:'EXPERIMENT LAB', icon:'flask-conical
     <div class="lab-log" id="lbLog"></div>
     <div class="det-actions"><button class="btn solid" id="lbEnd"><i data-lucide="check"></i>إغلاق المختبر</button></div>
   </div>`;
-  let sel=[], found=0, coins=0;
+  let sel=[], found=0, coins=0, mixing=false;
   $('#lbShelf').innerHTML=MATS.map(m=>`<button data-k="${m.k}">${bottleSVG(m.c)}<span>${m.n}</span></button>`).join('');
   function paintLog(){
     $('#lbLog').innerHTML=MATS.map(m=>{
-      const disc=Object.keys(MIXES).some(k=>k.includes(m.k)&&S.mixDis[k]);
-      return disc? `<div style="background:${MIXES[Object.keys(MIXES).find(k=>k.includes(m.k)&&S.mixDis[k])].c}22;border-color:${MIXES[Object.keys(MIXES).find(k=>k.includes(m.k)&&S.mixDis[k])].c}55"><i data-lucide="check" style="color:var(--green)"></i></div>`
-        : `<div><i data-lucide="help" style="color:var(--dim)"></i></div>`;
+      const hit=Object.keys(MIXES).find(k=>k.includes(m.k)&&S.mixDis[k]);
+      return hit? `<div style="background:${MIXES[hit].c}22;border-color:${MIXES[hit].c}55"><i data-lucide="check" style="color:var(--green)"></i></div>`
+        : `<div class="dim" style="font-size:18px;font-weight:700">؟</div>`;
     }).join(''); icons();
   }
   paintLog();
   $('#lbShelf').addEventListener('click', async e=>{
-    const b=e.target.closest('button'); if(!b||sel.length>=2) return;
+    const b=e.target.closest('button'); if(!b||mixing||sel.length>=2) return;
     const m=MATS.find(x=>x.k===b.dataset.k);
-    if(sel.includes(m.k)) return;
+    if(!m||sel.includes(m.k)) return;
     sel.push(m.k); b.classList.add('sel'); sfx('tick');
     $('#lbMix').innerHTML=`${bottleSVG(m.c)}${bottleSVG(m.c)}<span class="dim">…جاهزة للخلط</span>`;
     if(sel.length===2){
+      mixing=true;
       const key=[...sel].sort().join('+');
       const mix=MIXES[key];
       $('#lbMix').classList.add('mixing'); sfx('pop');
       await sleep(1100);
-      $('#lbMix').classList.remove('mixing');
+      $('#lbMix').classList.remove('mixing'); mixing=false;
       const first=!S.mixDis[key];
       S.mixDis[key]=true; save();
       found++; $('#lbFound').textContent=found;
@@ -1754,36 +1727,30 @@ GAMES.experiment={ ar:'المختبر', en:'EXPERIMENT LAB', icon:'flask-conical
 }};
 
 /* =====================================================================
-   11) لا تغمّضي
+   11) لا تغمضي
    ===================================================================== */
 function blinkRoom(change){
-  // غرفة SVG — كل عنصر له معرّف وتغيّر محتمل
   const clockT=change==='clock'? 'rotate(-42 560 80)' : 'rotate(28 560 80)';
   return `<svg viewBox="0 0 640 400">
     <rect width="640" height="400" fill="#12101a"/>
     <rect y="300" width="640" height="100" fill="#0e141d"/>
     <line x1="0" y1="300" x2="640" y2="300" stroke="#1e2530" stroke-width="2"/>
-    <!-- سجادة -->
     <ellipse cx="320" cy="360" rx="180" ry="26" fill="#1a1526"/>
-    <!-- اللوحة -->
     <g class="blink-item" data-ch="painting" ${change==='painting'? 'opacity="0"':''}>
       <rect x="70" y="70" width="110" height="86" rx="4" fill="#2b2537"/>
       <rect x="80" y="80" width="90" height="66" fill="#191430"/>
       <circle cx="105" cy="100" r="10" fill="#ffd23f"/>
       <path d="M80 140 L110 112 L135 132 L155 120 L170 140 Z" fill="#221d33"/>
     </g>
-    <!-- النافذة -->
     <rect x="240" y="50" width="120" height="100" rx="4" fill="#191430" stroke="#2b2537"/>
     <line x1="300" y1="50" x2="300" y2="150" stroke="#2b2537"/>
     <line x1="240" y1="100" x2="360" y2="100" stroke="#2b2537"/>
     <circle cx="270" cy="76" r="8" fill="#f0e9d9" opacity=".7"/>
-    <!-- الساعة -->
     <g class="blink-item" data-ch="clock">
       <circle cx="560" cy="80" r="28" fill="#1b1726" stroke="#2b2537" stroke-width="3"/>
       <line x1="560" y1="80" x2="560" y2="62" stroke="#ffc247" stroke-width="2.5" transform="${clockT}"/>
       <line x1="560" y1="80" x2="574" y2="86" stroke="#f0e9d9" stroke-width="2.5" transform="${clockT}"/>
     </g>
-    <!-- الباب -->
     <g class="blink-item" data-ch="door">
       ${change==='door'
         ? `<rect x="510" y="130" width="80" height="170" rx="3" fill="#07060a" stroke="#2b2537"/>
@@ -1792,26 +1759,22 @@ function blinkRoom(change){
         : `<rect x="510" y="130" width="80" height="170" rx="3" fill="#0e0c13" stroke="#2b2537"/>
            <circle cx="576" cy="218" r="4" fill="#ffc247"/>`}
     </g>
-    <!-- المصباح -->
     <g class="blink-item" data-ch="lamp">
       <path d="M150 200 L150 300" stroke="#2b2537" stroke-width="4"/>
       <path d="M132 200 L168 200 L160 176 L140 176 Z" fill="${change==='lamp'? '#2b2537':'#ffd23f'}"/>
       <ellipse cx="150" cy="304" rx="20" ry="5" fill="#2b2537"/>
     </g>
-    <!-- الكرسي -->
     <g class="blink-item" data-ch="chair" ${change==='chair'? 'transform="translate(52 0)"':''}>
       <rect x="300" y="230" width="90" height="14" rx="4" fill="#2b2537"/>
       <rect x="304" y="176" width="82" height="58" rx="6" fill="#221d33" stroke="#2b2537"/>
       <rect x="308" y="244" width="8" height="58" fill="#221d33"/>
       <rect x="374" y="244" width="8" height="58" fill="#221d33"/>
     </g>
-    <!-- النبتة -->
     <g class="blink-item" data-ch="plant" ${change==='plant'? 'opacity="0"':''}>
       <path d="M420 240 C400 210 410 180 428 172 C416 196 430 214 442 222 Z" fill="#1f4030"/>
       <path d="M436 240 C444 200 460 190 472 196 C456 204 450 224 448 240 Z" fill="#2b5a40"/>
       <path d="M410 240 h44 l-6 34 h-32 Z" fill="#8a5a3b"/>
     </g>
-    <!-- القطة -->
     <g class="blink-item" data-ch="cat" ${change==='cat'? 'opacity="0"':''}>
       <path d="M180 300 q-10 -26 8 -30 q16 -4 18 12 q14 -2 12 18 Z" fill="#33283f"/>
       <circle cx="188" cy="284" r="3" fill="#ffd23f"/>
@@ -1827,24 +1790,24 @@ GAMES.blink={ ar:'لا تغمّضي', en:"DON'T BLINK", icon:'eye', run(api){
     <div class="tbar"><i id="bBar" style="width:100%"></i></div>
   </div>`;
   const CHANGES=['painting','clock','door','lamp','chair','plant','cat'];
-  let round=0, correct=0;
-  let t0=0, barT=null;
+  const NAMES={painting:'اللوحة اختفت', clock:'ساعة الحائط تغيّرت', door:'الباب فُتح', lamp:'المصباح انطفأ', chair:'الكرسي تحرّك', plant:'النبتة اختفت', cat:'القطة اختفت'};
+  let round=0, correct=0, t0=0, barT=null;
   async function play(){
     $('#bRound').textContent=(round+1)+'/5';
     $('#bTop').textContent='راقبي الغرفة جيدًا…'; sfx('tick');
     t0=Date.now();
     barT=api.every(()=>{
       const p=Math.max(0,1-(Date.now()-t0)/4500);
-      $('#bBar').style.width=(p*100)+'%';
-      if(p<=0) clearInterval(barT);
+      const bar=$('#bBar'); if(bar) bar.style.width=(p*100)+'%';
+      if(p<=0&&barT) clearInterval(barT);
     },80);
     await sleep(4500);
     const ch=CHANGES[rnd(CHANGES.length)];
-    $('#bWrap').querySelector('svg')?.remove();
-    $('#bWrap').insertAdjacentHTML('afterbegin', blinkRoom(ch));
+    const wrap=$('#bWrap');
+    const oldSvg=wrap.querySelector('svg'); if(oldSvg) oldSvg.remove();
+    wrap.insertAdjacentHTML('afterbegin', blinkRoom(ch));
     $('#bTop').textContent='ماذا تغيّر؟ اضغطي عليه';
-    sfx('pop'); clearInterval(barT);
-    $('#bWrap').classList.add('armed');
+    sfx('pop'); if(barT) clearInterval(barT);
     $$('#bWrap .blink-item').forEach(el=>{
       el.addEventListener('pointerdown', ()=>{
         if(el.dataset.processed) return; el.dataset.processed='1';
@@ -1857,7 +1820,7 @@ GAMES.blink={ ar:'لا تغمّضي', en:"DON'T BLINK", icon:'eye', run(api){
           next();
         }else{
           el.classList.add('blink-flash'); sfx('bad');
-          $('#bTop').textContent='ليس هذا… الصحيح: «'+({painting:'اللوحة اختفت', clock:'ساعة الحائط', door:'الباب', lamp:'المصباح', chair:'الكرسي تحرّك', plant:'النبتة اختفت', cat:'القطة اختفت'})[ch]+'»';
+          $('#bTop').textContent='ليس هذا… الصحيح: '+NAMES[ch];
           next();
         }
       });
@@ -1874,13 +1837,13 @@ GAMES.blink={ ar:'لا تغمّضي', en:"DON'T BLINK", icon:'eye', run(api){
 }};
 
 /* =====================================================================
-   12) آلة الحظ + متجر المظاهر
+   12) آلة الحظ + المظاهر
    ===================================================================== */
 const REELSYM=['C','K','T','S','H'];
 GAMES.lucky={ ar:'آلة الحظ', en:'LUCKY MACHINE', icon:'dices', firstReward:'ticket', run(api){
   const st=api.stage;
   st.innerHTML=`<div class="g-wrap lucky-flex">
-    <div class="game-hud"><span>رصيدكِ<b>${S.coins}</b></span><span>لفّات اليوم<b id="lkSpins">0</b></span></div>
+    <div class="game-hud"><span>رصيدكِ<b id="lkCoins">${S.coins}</b></span><span>لفّات الجولة<b id="lkSpins">0</b></span></div>
     <div class="machine">
       <div class="machine-top" id="lkTop"></div>
       <div class="reels">
@@ -1894,6 +1857,7 @@ GAMES.lucky={ ar:'آلة الحظ', en:'LUCKY MACHINE', icon:'dices', firstRewar
   </div>`;
   makeBulbs($('#lkTop'),9);
   let spins=0, spinning=false;
+  function updCoins(){ const el=$('#lkCoins'); if(el) el.textContent=S.coins; }
   function skinRows(){
     $('#lkSkins').innerHTML=Object.entries(SKINS).map(([k,s])=>{
       const owned=S.skins.includes(k);
@@ -1905,9 +1869,9 @@ GAMES.lucky={ ar:'آلة الحظ', en:'LUCKY MACHINE', icon:'dices', firstRewar
     icons();
     $$('#lkSkins [data-sk]').forEach(b=>b.addEventListener('click', ()=>{
       const k=b.dataset.sk, s=SKINS[k];
-      if(S.skins.includes(k)){ S.skin=k; applySkin(); save(); sfx('pop'); toast(`ارتديتِ «${s.n}»`,'shirt'); award('skinned'); skinRows(); }
+      if(S.skins.includes(k)){ S.skin=k; applySkin(); save(); sfx('pop'); award('skinned'); toast(`ارتديتِ «${s.n}»`,'shirt'); skinRows(); }
       else{
-        if(S.tickets<s.price){ toast(`تحتاجين ${s.price} تذاكر — جرّبي حظك بالآلة!`,'ticket'); sfx('bad'); return; }
+        if(S.tickets<s.price){ toast(`تحتاجين ${s.price} تذاكر — جرّبي حظكِ بالآلة!`,'ticket'); sfx('bad'); return; }
         S.tickets-=s.price; S.skins.push(k); S.skin=k; applySkin(); save(); renderHUD();
         sfx('key'); award('skinned'); toast(`مظهر جديد: ${s.n}!`,'shirt'); skinRows();
       }
@@ -1917,18 +1881,16 @@ GAMES.lucky={ ar:'آلة الحظ', en:'LUCKY MACHINE', icon:'dices', firstRewar
   $('#lkGo').addEventListener('click', async ()=>{
     if(spinning) return;
     if(S.coins<50){ toast('تحتاجين 50 عملة للفة','coins'); sfx('bad'); return; }
-    spinning=true; S.coins-=50; S.plays++; save(); renderHUD(); sfx('coin');
+    spinning=true; S.coins-=50; S.plays++; save(); renderHUD(); updCoins(); sfx('coin');
     spins++; $('#lkSpins').textContent=spins;
     $('#lkBanner').innerHTML='<span class="dim">تدور…</span>';
     if(!S.firstClear.lucky){ S.firstClear.lucky=true; S.tickets++; save();
       toast('تذكرة تذكارية — أول لفة في الآلة!','ticket'); }
-    // دوران الرموز
     const ivs=[0,1,2].map(i=>setInterval(()=>{
       const r=$('#rl'+i); r.textContent=REELSYM[rnd(5)];
       r.style.color=['#ffc247','#35e0b0','#ff7eb6','#ffd23f','#4da3ff'][rnd(5)];
       sfx('tick');
     },85));
-    // قرعة الجائزة
     const r=Math.random(); let prize, rare=false;
     if(r<.45) prize={type:'coins', v:20+rnd(61)};
     else if(r<.63) prize={type:'coins', v:100+rnd(151)};
@@ -1941,7 +1903,7 @@ GAMES.lucky={ ar:'آلة الحظ', en:'LUCKY MACHINE', icon:'dices', firstRewar
     clearInterval(ivs[0]); $('#rl0').textContent=prize.type==='coins'?'C':prize.type==='key'?'K':prize.type==='ticket'?'T':prize.type==='hint'?'H':prize.type==='jack'?'S':'X';
     await sleep(420); clearInterval(ivs[1]); $('#rl1').textContent=$('#rl0').textContent;
     await sleep(420); clearInterval(ivs[2]); $('#rl2').textContent=$('#rl0').textContent;
-    $$('.reel').forEach(el=>el.style.color= prize.type==='none'? 'var(--red)':'var(--amber)');
+    $$('.reel').forEach(el=>el.style.color= prize.type==='none'? '#ff4d6b':'#ffc247');
     let msg='';
     if(prize.type==='coins'){ addCoins(prize.v); msg=`رذاذ عملات! <b>+${prize.v}</b>`; sfx('coin'); }
     else if(prize.type==='key'){ addKeys(1); rare=true; msg='<b>مفتاح!</b> احتفظي به جيدًا'; sfx('key'); }
@@ -1950,14 +1912,14 @@ GAMES.lucky={ ar:'آلة الحظ', en:'LUCKY MACHINE', icon:'dices', firstRewar
     else if(prize.type==='jack'){ addKeys(1); S.tickets+=2; addCoins(100); rare=true; msg='<b>الجائزة الكبرى!</b> مفتاح + تذكرتان + 100 عملة'; sfx('key'); }
     else { msg='دخان فقط… حظ أوفر في القادمة'; sfx('bad'); }
     if(rare) award('lucky');
-    save(); renderHUD();
+    save(); renderHUD(); updCoins(); skinRows();
     $('#lkBanner').innerHTML=msg;
     spinning=false;
   });
 }};
 
 /* =====================================================================
-   13) القاعة الأخيرة (سرية) — تسلسل الأضواء
+   13) القاعة الأخيرة (سرية)
    ===================================================================== */
 GAMES.secret={ ar:'القاعة الأخيرة', en:'THE VAULT', icon:'lock', secret:true, run(api){
   const st=api.stage;
@@ -1970,33 +1932,37 @@ GAMES.secret={ ar:'القاعة الأخيرة', en:'THE VAULT', icon:'lock', se
   const VC=['#ff4d6b','#4da3ff','#35e0b0','#ffd23f'], VF=[262,330,392,523];
   $('#vPads').innerHTML=VC.map((c,i)=>`<button data-i="${i}" style="background:${c}"></button>`).join('');
   let alive=true; api.done(()=>alive=false);
-  let level=0, retries=2, seq=[], step=0, accepting=false;
+  let level=0, retries=2, seq=[], step=0, accepting=false, ended=false;
   const LENS=[3,4,5,6,7,8];
-  function lit(i){ const b=$(`#vPads button[data-i="${i}"]`);
+  function lit(i){
+    const b=$(`#vPads button[data-i="${i}"]`); if(!b) return;
     b.classList.add('lit'); tone(VF[i],.34,'triangle',.16);
     setTimeout(()=>b.classList.remove('lit'), 380);
   }
   async function play(){
+    if(!alive||ended) return;
     accepting=false; step=0;
     $('#vStep').textContent=LENS[level]; $('#vLeft').textContent=6-level;
     $('#vInfo').textContent='راقبي التسلسل…';
     seq=Array.from({length:LENS[level]},()=>rnd(4));
-    await sleep(800); if(!alive) return;
-    for(const p of seq){ if(!alive) return; lit(p); await sleep(640); }
-    if(!alive) return;
+    await sleep(800); if(!alive||ended) return;
+    for(const p of seq){ if(!alive||ended) return; lit(p); await sleep(640); }
+    if(!alive||ended) return;
     $('#vInfo').textContent='دوركِ الآن';
     accepting=true;
   }
   $('#vPads').addEventListener('click', e=>{
-    const b=e.target.closest('button'); if(!b||!accepting) return;
+    if(!accepting||ended) return;
+    const b=e.target.closest('button'); if(!b) return;
     const i=+b.dataset.i; lit(i);
     if(i===seq[step]){
       step++;
       if(step>=seq.length){
         accepting=false; level++; sfx('good'); addCoins(15); save();
         if(level>=6){
-          S.secretDone=true; if(!S.endShown) S.endShown=true;
-          save(); api.award('the_end');
+          ended=true;
+          S.secretDone=true; S.endShown=true; save();
+          api.award('the_end');
           api.after(()=>{ closeGame(); showEnd(false); }, 600);
         }else{
           toast(`تسلسل ${LENS[level-1]} مكتمل! +15 عملة`,'sparkles');
@@ -2007,9 +1973,10 @@ GAMES.secret={ ar:'القاعة الأخيرة', en:'THE VAULT', icon:'lock', se
       accepting=false; sfx('bad');
       if(retries>0){
         retries--;
-        toast(`خطأ — محاولتان متبقيتان. إعادة نفس التسلسل…`,'flame');
+        toast('خطأ — محاولتان متبقيتان. إعادة نفس التسلسل…','flame');
         api.after(play, 1200);
       }else{
+        ended=true;
         api.finish({score:level, scoreTxt:'مستويات', coins:level*15, xp:level*12, notes:[{i:'lock', t:'القاعة صمدت هذه المرة… عودي بعشر مفاتيح مجددًا'}]});
       }
     }
@@ -2025,7 +1992,7 @@ const RIDDLES=[
   {q:'يمرّ أمام الشمس ولا يترك ظلًّا… ما هو؟', a:['الريح','ريح','الرياح','الهواء','هواء','النسمة'], h:'تشعرين به ولا ترينه.'},
   {q:'له أسنانٌ كثيرة ولا يعضّ أبدًا… ما هو؟', a:['المشط','مشط','امشط','الأمشاط','مشط الشعر'], h:'تستعملينه أمام المرآة كل صباح.'},
 ];
-GAMES.true={ ar:'؟؟؟', en:'??? THE TRUE MYSTERY', icon:'star', secret:true, run(api){
+GAMES.true={ ar:'؟؟؟', en:'??? TRUE MYSTERY', icon:'star', secret:true, run(api){
   const st=api.stage;
   st.innerHTML=`<div class="g-wrap riddle-box">
     <div class="game-hud"><span>اللغز<b id="rrIdx">1/3</b></span></div>
@@ -2035,7 +2002,7 @@ GAMES.true={ ar:'؟؟؟', en:'??? THE TRUE MYSTERY', icon:'star', secret:true, r
     <p class="dim" id="rrMsg" style="min-height:22px;font-size:13px"></p>
   </div>`;
   let idx=0, wrong=0;
-  function show(){ $('#rrIdx').textContent=(idx+1)+'/3'; $('#rrQ').textContent=RIDDLES[idx].q; $('#rrIn').value=''; $('#rrIn').focus(); $('#rrMsg').textContent=''; wrong=0; }
+  function show(){ $('#rrIdx').textContent=(idx+1)+'/3'; $('#rrQ').textContent=RIDDLES[idx].q; $('#rrIn').value=''; $('#rrMsg').textContent=''; wrong=0; }
   function submit(){
     const v=$('#rrIn').value.trim();
     if(!v) return;
@@ -2056,7 +2023,7 @@ GAMES.true={ ar:'؟؟؟', en:'??? THE TRUE MYSTERY', icon:'star', secret:true, r
 }};
 
 /* =====================================================================
-   الخريطة (SVG + تحريك وتكبير)
+   الخريطة — سحب/تكبير + نقر لا يتعارض مع السحب
    ===================================================================== */
 const svg=$('#mapSvg');
 let VB={x:0,y:0,w:1000,h:860};
@@ -2076,32 +2043,71 @@ function zoomAt(cx, cy, factor){
   VB.x=px-(cx-r.left)/r.width*VB.w; VB.y=py-(cy-r.top)/r.height*VB.h;
   clampVB();
 }
-// تحريك باللمس + تكبير بإصبعين
+// مهم: لا نستخدم setPointerCapture — كان يبتلع نقرات العقد!
 const ptrs=new Map(); let lastDist=0, dragAmt=0;
-svg.addEventListener('pointerdown', e=>{ svg.setPointerCapture(e.pointerId); ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY}); dragAmt=0; });
-svg.addEventListener('pointermove', e=>{
+svg.addEventListener('pointerdown', e=>{
+  ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  dragAmt=0;
+});
+window.addEventListener('pointermove', e=>{
   if(!ptrs.has(e.pointerId)) return;
   const prev=ptrs.get(e.pointerId);
   const dx=e.clientX-prev.x, dy=e.clientY-prev.y;
   ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  dragAmt+=Math.abs(dx)+Math.abs(dy);
   if(ptrs.size===1){
-    dragAmt+=Math.abs(dx)+Math.abs(dy);
     const r=svg.getBoundingClientRect(), f=VB.w/r.width;
     VB.x-=dx*f; VB.y-=dy*f; clampVB();
   }else if(ptrs.size===2){
-    dragAmt+=Math.abs(dx)+Math.abs(dy);
-    const [a,b]=[...ptrs.values()];
-    const d=Math.hypot(a.x-b.x, a.y-b.y);
-    if(lastDist>0){ const mid={x:(a.x+b.x)/2, y:(a.y+b.y)/2}; zoomAt(mid.x, mid.y, d/lastDist); }
+    const pts=[...ptrs.values()];
+    const d=Math.hypot(pts[0].x-pts[1].x, pts[0].y-pts[1].y);
+    if(lastDist>0){
+      const mid={x:(pts[0].x+pts[1].x)/2, y:(pts[0].y+pts[1].y)/2};
+      zoomAt(mid.x, mid.y, d/lastDist);
+    }
     lastDist=d;
   }
 });
-const endPtr=e=>{ ptrs.delete(e.pointerId); if(ptrs.size<2) lastDist=0; };
-svg.addEventListener('pointerup', endPtr); svg.addEventListener('pointercancel', endPtr);
+function endPtr(e){ ptrs.delete(e.pointerId); if(ptrs.size<2) lastDist=0; }
+window.addEventListener('pointerup', endPtr);
+window.addEventListener('pointercancel', endPtr);
+// النقر يُحدد بمكان رفع الإصبع إن لم يكن سحبًا
+svg.addEventListener('pointerup', e=>{
+  if(dragAmt>10) return;
+  const el=document.elementFromPoint(e.clientX, e.clientY);
+  if(!el || !el.closest) return;
+  const g=el.closest('g.node');
+  if(g && g.dataset && g.dataset.id) tapNode(g.dataset.id);
+});
 svg.addEventListener('wheel', e=>{ e.preventDefault(); zoomAt(e.clientX,e.clientY, e.deltaY<0?1.12:0.9); }, {passive:false});
  $('#zoomIn').addEventListener('click', ()=>zoomAt(innerWidth/2, innerHeight/2, 1.3));
  $('#zoomOut').addEventListener('click', ()=>zoomAt(innerWidth/2, innerHeight/2, .77));
  $('#zoomFit').addEventListener('click', ()=>{ sfx('click'); fitAll(); });
+
+function tapNode(id){
+  if(id==='arcade'){
+    sfx('click');
+    modal({title:'مركز المدينة', html:`<p>كل لعبة تكملينها أول مرة تمنحكِ <b>مفتاحًا</b>. المفاتيح تفتح أماكن جديدة… وعند عشرة مفاتيح، ستظهرين حيث لا يتوقع أحد.</p>
+    <p class="dim">المدينة تتذكّر كل شيء: كل عملة، كل قرينة، كل سرّ.</p>`,
+    actions:[{t:'فهمت', cls:'solid'}]});
+    return;
+  }
+  if(id==='secret'||id==='true'){
+    if(!isUnlocked(id)){
+      if(id==='secret') toast('تحتاجين 10 مفاتيح لدخول القاعة الأخيرة','lock');
+      else toast(`اجمعي القرائن الثلاث (${clueCount()}/3)`,'lock');
+      sfx('bad'); return;
+    }
+    openGame(id); return;
+  }
+  const g=GAMES[id]; if(!g) return;
+  if(!isUnlocked(id)){
+    const req=REQ[id]||0;
+    toast(`${g.ar} مقفلة — تحتاجين ${req} ${req===1?'مفتاح':'مفاتيح'} (عندكِ ${S.keys})`,'lock');
+    sfx('bad'); return;
+  }
+  openGame(id);
+}
 
 function nodeSVG(n, locked, reqTxt){
   const bulbs=Array.from({length:5},(_,i)=>`<circle class="${locked?'':'bulb'}" cx="${n.x-34+i*17}" cy="${n.y-36}" r="3.1" fill="${locked?'#3a3547':'#fff3c9'}" style="animation-delay:${i*.22}s"/>`).join('');
@@ -2124,23 +2130,22 @@ function nodeSVG(n, locked, reqTxt){
   </g>`;
 }
 function secretSVG(){
-  const done=S.secretDone;
   const x=500, y=770;
-  if(S.secretDone && clueCount()<3 && !S.trueDone){
-    return `<g class="node locked" data-id="true">
-      <text x="${x}" y="${y-28}" text-anchor="middle" class="px" font-size="26" fill="#7c7488">؟؟؟</text>
-      <rect x="${x-58}" y="${y-16}" width="116" height="52" rx="9" fill="#16131f" stroke="#2b2537"/>
-      <foreignObject x="${x-16}" y="${y-8}" width="32" height="32">
-        <div xmlns="http://www.w3.org/1999/xhtml" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center">
-          <i data-lucide="lock" style="width:20px;height:20px;color:#7c7488"></i></div>
-      </foreignObject>
-      <text x="${x}" y="${y+58}" text-anchor="middle" font-size="10.5" fill="#7c7488">تحتاجين القرائن الثلاث (${clueCount()}/3)</text>
-      <rect x="${x-60}" y="${y-50}" width="120" height="118" fill="transparent"/>
-    </g>`;
-  }
   if(S.secretDone){
+    if(!(clueCount()>=3) && !S.trueDone){
+      return `<g class="node locked" data-id="true">
+        <text x="${x}" y="${y-28}" text-anchor="middle" class="px" font-size="26" fill="#7c7488">؟؟؟</text>
+        <rect x="${x-58}" y="${y-16}" width="116" height="52" rx="9" fill="#16131f" stroke="#2b2537"/>
+        <foreignObject x="${x-16}" y="${y-8}" width="32" height="32">
+          <div xmlns="http://www.w3.org/1999/xhtml" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center">
+            <i data-lucide="lock" style="width:20px;height:20px;color:#7c7488"></i></div>
+        </foreignObject>
+        <text x="${x}" y="${y+58}" text-anchor="middle" font-size="10.5" fill="#7c7488">تحتاجين القرائن الثلاث (${clueCount()}/3)</text>
+        <rect x="${x-60}" y="${y-50}" width="120" height="118" fill="transparent"/>
+      </g>`;
+    }
     return `<g class="node" data-id="true">
-      <text x="${x}" y="${y-28}" text-anchor="middle" class="px" font-size="26" fill="var(--acc)">؟؟؟</text>
+      <text x="${x}" y="${y-28}" text-anchor="middle" class="px" font-size="26" fill="#7c7488">؟؟؟</text>
       <rect x="${x-58}" y="${y-16}" width="116" height="52" rx="9" fill="#16131f" stroke="var(--acc)"/>
       <foreignObject x="${x-16}" y="${y-8}" width="32" height="32">
         <div xmlns="http://www.w3.org/1999/xhtml" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center">
@@ -2150,7 +2155,6 @@ function secretSVG(){
       <rect x="${x-60}" y="${y-50}" width="120" height="118" fill="transparent"/>
     </g>`;
   }
-  // القاعة الأخيرة (قبل الإكمال)
   return `<g class="node" data-id="secret">
     <rect x="${x-64}" y="${y-46}" width="128" height="88" rx="10" fill="#1b1726" stroke="var(--acc)" stroke-width="2"/>
     <path d="M${x-40},${y-46} A40 40 0 0 1 ${x+40},${y-46}" fill="none" stroke="var(--acc)" stroke-width="3"/>
@@ -2169,16 +2173,16 @@ function renderMap(){
     return `<path d="M500,428 Q${mx},${my} ${n.x},${n.y-30}" fill="none" stroke="#1d232d" stroke-width="22" stroke-linecap="round"/>
             <path d="M500,428 Q${mx},${my} ${n.x},${n.y-30}" fill="none" stroke="#2b3442" stroke-width="1.6" stroke-dasharray="7 9"/>`;
   }).join('');
-  const bushes=[[60,140],[940,180],[90,640],[930,660],[220,410],[790,420],[500,255],[350,330]].map(([x,y])=>
-    `<ellipse cx="${x}" cy="${y}" rx="17" ry="10" fill="#122019"/><ellipse cx="${x-9}" cy="${y+3}" rx="10" ry="7" fill="#0f1a14"/>`).join('');
-  const lamps=[[340,320],[660,320],[340,470],[660,470]].map(([x,y])=>
-    `<circle cx="${x}" cy="${y}" r="2.6" fill="#ffd23f"/><circle cx="${x}" cy="${y}" r="13" fill="#ffc247" opacity=".1"/><rect x="${x-1}" y="${y}" width="2" height="16" fill="#2b2537"/>`).join('');
+  const bushes=[[60,140],[940,180],[90,640],[930,660],[220,410],[790,420],[500,255],[350,330]].map(pos=>
+    `<ellipse cx="${pos[0]}" cy="${pos[1]}" rx="17" ry="10" fill="#122019"/><ellipse cx="${pos[0]-9}" cy="${pos[1]+3}" rx="10" ry="7" fill="#0f1a14"/>`).join('');
+  const lamps=[[340,320],[660,320],[340,470],[660,470]].map(pos=>
+    `<circle cx="${pos[0]}" cy="${pos[1]}" r="2.6" fill="#ffd23f"/><circle cx="${pos[0]}" cy="${pos[1]}" r="13" fill="#ffc247" opacity=".1"/><rect x="${pos[0]-1}" y="${pos[1]}" width="2" height="16" fill="#2b2537"/>`).join('');
   const arcade=`<g class="node" data-id="arcade">
     <rect x="415" y="330" width="170" height="112" rx="8" fill="#1a1626" stroke="#3a2f4a" stroke-width="2"/>
     <rect x="415" y="330" width="170" height="30" rx="8" fill="#12101a"/>
     <text x="500" y="351" text-anchor="middle" class="px" font-size="14" fill="var(--acc)">ARCADE</text>
     ${Array.from({length:9},(_,i)=>`<circle class="bulb" cx="${427+i*17}" cy="329" r="2.8" fill="#fff3c9" style="animation-delay:${i*.19}s"/>`).join('')}
-    ${[[432,392],[456,392],[544,392],[568,392]].map(([x,y])=>`<rect x="${x}" y="${y-14}" width="18" height="16" rx="2" fill="var(--acc)" opacity=".8"/>`).join('')}
+    ${[[432,392],[456,392],[544,392],[568,392]].map(w=>`<rect x="${w[0]}" y="${w[1]-14}" width="18" height="16" rx="2" fill="var(--acc)" opacity=".8"/>`).join('')}
     <rect x="482" y="398" width="36" height="44" rx="4" fill="#0e0c13" stroke="var(--acc)"/>
     <circle cx="510" cy="421" r="2.6" fill="var(--acc)"/>
     <rect x="409" y="324" width="182" height="124" fill="transparent"/>
@@ -2198,33 +2202,6 @@ function renderMap(){
     </g>`}
     ${arcade}`;
   icons();
-  svg.querySelectorAll('g.node').forEach(g=>{
-    g.addEventListener('click', ()=>{
-      if(dragAmt>10) return;
-      const id=g.dataset.id;
-      if(id==='arcade'){
-        sfx('click');
-        modal({title:'مركز المدينة', html:`<p>كل لعبة تكملينها أول مرة تمنحكِ <b>مفتاحًا</b>. المفاتيح تفتح أماكن جديدة… وعند عشرة مفاتيح، ستظهرين حيث لا يتوقع أحد.</p>
-        <p class="dim">المدينة تتذكّر كل شيء: كل عملة، كل قرينة، كل سرّ.</p>`,
-        actions:[{t:'فهمت', cls:'solid'}]});
-        return;
-      }
-      if(id==='secret'||id==='true'){
-        if(!isUnlocked(id)){
-          if(id==='secret') toast('تحتاجين 10 مفاتيح لدخول القاعة الأخيرة','lock');
-          else toast(`اجمعي القرائن الثلاث (${clueCount()}/3)`,'lock');
-          sfx('bad'); return;
-        }
-        openGame(id); return;
-      }
-      if(!isUnlocked(id)){
-        const req=REQ[id];
-        toast(`${GAMES[id].ar} مقفلة — تحتاجين ${req} ${req===1?'مفتاح':'مفاتيح'} (عندك ${S.keys})`,'lock');
-        sfx('bad'); return;
-      }
-      openGame(id);
-    });
-  });
 }
 
 /* =====================================================================
@@ -2261,16 +2238,15 @@ function openProfile(){
       ${S.bestReaction!=null? `<span class="pill"><i data-lucide="zap"></i><b class="px">${S.bestReaction}ms</b></span>`:''}
       ${S.detections? `<span class="pill"><i data-lucide="eye"></i><b class="px">${S.detections}</b></span>`:''}
     </div>
-    <div class="dim" style="font-size:12px">مفاتيح خاصة: ${S.keyColors.blue?'أزرق ':''}${S.keyColors.golden||S.keyColors.gold?'ذهبي ':''}${S.keyColors.red?'أحمر':''}${!Object.keys(S.keyColors).length?'—':''} | قرائن: ${clueCount()}/3</div>
+    <div class="dim" style="font-size:12px">مفاتيح خاصة: ${S.keyColors.blue?'أزرق ':''}${S.keyColors.golden?'ذهبي ':''}${S.keyColors.red?'أحمر':''}${!Object.keys(S.keyColors).length?'—':''} | قرائن: ${clueCount()}/3</div>
     <div class="dim" style="margin-top:14px;font-size:12.5px">المظاهر (تشترى بالتذاكر من آلة الحظ)</div>
-    <div class="prof-skins">${Object.entries(SKINS).map(([k,s])=>`<button data-sk="${k}" class="${S.skin===k?'on':''}"><span class="sw" style="background:${s.c}"></span>${s.n}${S.skins.includes(k)?'':` · ${s.price} 🎟`.replace(' 🎟',' تذاكر')}</button>`).join('')}</div>
+    <div class="prof-skins">${Object.entries(SKINS).map(([k,s])=>`<button data-sk="${k}" class="${S.skin===k?'on':''}"><span class="sw" style="background:${s.c}"></span>${s.n}${S.skins.includes(k)?'':` · ${s.price} تذاكر`}</button>`).join('')}</div>
     <div class="dim" style="margin-top:14px;font-size:12.5px">الإنجازات</div>
-    <div class="ach-list">${Object.entries(ACH).map(([id,a])=>`
-      <div class="ach ${S.ach[id]?'':'off'}"><i data-lucide="${a.i}"></i><div class="a-t"><b>${a.n}</b><span>${a.d}</span></div></div>`).join('')}
+    <div class="ach-list">${Object.entries(ACH).map(pair=>`
+      <div class="ach ${S.ach[pair[0]]?'':'off'}"><i data-lucide="${pair[1].i}"></i><div class="a-t"><b>${pair[1].n}</b><span>${pair[1].d}</span></div></div>`).join('')}
     </div>
   `, actions:[
     {t:'لعبة جديدة', cls:'danger', fn:()=>{
-      bg.remove();
       confirmBox('محل كل شيء؟','سيُمسح تقدمك بالكامل: العملات، المفاتيح، الأسرار… المدينة ستنساكِ.',()=>{
         localStorage.removeItem(LS); S=load(); save(); applySkin(); bg.remove();
         renderHUD(); renderMap(); openProfile(); toast('مدينة جديدة… صفحة بيضاء','rotate-ccw');
@@ -2296,10 +2272,10 @@ function openProfile(){
 function showEnd(trueEnd){
   const e=document.createElement('div'); e.id='endScreen';
   const stats=`<div class="end-stats">
-    <span class="pill"><i data-lucide="trophy"></i>${Object.keys(S.ach).length}/${Object.keys(ACH).length}</span>
+    <span class="pill"><i data-lucide="trophy"></i><b class="px">${Object.keys(S.ach).length}/${Object.keys(ACH).length}</b></span>
     <span class="pill"><i data-lucide="coins"></i><b class="px">${S.totalCoins}</b></span>
     <span class="pill"><i data-lucide="key"></i><b class="px">${S.keys}</b></span>
-    <span class="pill"><i data-lucide="zap"></i>Lv <b class="px">${S.level}</b></span>
+    <span class="pill"><i data-lucide="zap"></i><b class="px">${S.level}</b></span>
   </div>`;
   e.innerHTML=`<div class="end-in">
     <div class="mq-row end-bulbs" data-bulbs="9"></div>
@@ -2312,7 +2288,7 @@ function showEnd(trueEnd){
       <p class="end-ar dim" style="font-size:12.5px">+1000 عملة مكافأة النهاية الحقيقية… لكن حواسّ المدينة تخبرها أن إنجازًا أو اثنين ما زالا في الظلام.</p>
     `:`
       <p class="end-ar">أضأتِ كل زاوية في المدينة…</p>
-      <div class="px end-secret">🔒 1 SECRET REMAINS</div>
+      <div class="px end-secret"><i data-lucide="lock"></i> 1 SECRET REMAINS</div>
       <p class="end-ar">«هل أنتِ متأكدة أنكِ وجدتِ كل شيء؟»</p>
       <p class="end-ar dim">اجمعي القرائن الثلاث — خزنة الشفرات، اعتراف القضية، والتركيبة السرية —<br>وشاهدي ما سيظهر مكان القاعة.</p>
       ${stats}
@@ -2321,8 +2297,6 @@ function showEnd(trueEnd){
   </div>`;
   document.body.appendChild(e);
   makeBulbs(e.querySelector('.end-bulbs'),9);
-  const lock=e.querySelector('.end-secret');
-  if(lock&&lock.textContent.includes('SECRET')){ lock.innerHTML='<i data-lucide="lock"></i> 1 SECRET REMAINS'; }
   icons(); sfx('ach');
   e.querySelector('#endBack').addEventListener('click', ()=>{ e.remove(); sfx('click'); renderMap(); });
 }
@@ -2340,20 +2314,20 @@ if(S.plays>0||S.coins>0) $('#splashSub').textContent=`مدينتكِ في انت
   $('#mapScreen').classList.remove('hidden');
   renderMap(); renderHUD();
   const r=$('#mapWrap').getBoundingClientRect();
-  if(r.width/r.height<1.05){
-    const w=640, h=w/(r.width/r.height);
+  if(r.width/Math.max(1,r.height)<1.05){
+    const w=640, h=w/(r.width/Math.max(1,r.height));
     VB={x:500-w/2, y:Math.max(-40, 400-h/2), w, h}; clampVB();
   } else fitAll();
   if(!S.seenIntro){
     S.seenIntro=true; save();
     modal({title:'أهلًا بكِ في المدينة', html:`
-      <p>هذه <b>THE MYSTERY ARCADE</b> — مدينة ألعاب غامضة لا تنام. ابدئي من أي بوابة مضاء، وكل لعبة تكملينها تمنحكِ <b>مفتاحًا</b> يفتح مكانًا جديدًا.</p>
-      <p class="dim">احصلي على <b>10 مفاتيح</b> لتظهر لكِ القاعة الأخيرة… وما بعدها، لا يخبرك أحد. اسحبي الخريطة للتجول.</p>`,
+      <p>هذه <b>THE MYSTERY ARCADE</b> — مدينة ألعاب غامضة لا تنام. ابدئي من أي بوابة مضاء، وكل لعبة تكملينها أول مرة تمنحكِ <b>مفتاحًا</b> يفتح مكانًا جديدًا.</p>
+      <p class="dim">احصلي على <b>10 مفاتيح</b> لتظهر لكِ القاعة الأخيرة… وما بعدها، لا يخبرك أحد. اسحبي الخريطة للتجول، واضغطي على أي مبنأ مضاء للعب.</p>`,
       actions:[{t:'ادفعي العملة وادخلي', cls:'solid', fn:()=>{
         if(!S.name){
           modal({title:'كيف تناديكِ المدينة؟', html:`<input id="nameIn" placeholder="اسمكِ…" maxlength="16" style="width:100%;background:var(--panel2);border:2px solid var(--line);border-radius:10px;color:var(--ink);padding:10px 14px;font-family:inherit;font-size:16px;text-align:center">`,
             actions:[{t:'هذا اسمي', cls:'solid', fn:()=>{
-              const v=$('#nameIn').value.trim(); S.name=v||'المحققة الغامضة'; save(); renderMap();
+              const v=$('#nameIn').value.trim(); S.name=v||''; save(); renderMap();
             }}]});
         }
       }}]});
